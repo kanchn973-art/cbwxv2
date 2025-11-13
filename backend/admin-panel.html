@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Control</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white">
+    <div id="loginScreen" class="min-h-screen flex items-center justify-center">
+        <div class="bg-gray-800 p-8 rounded-lg max-w-md w-full">
+            <h1 class="text-2xl font-bold mb-6">Omega Access</h1>
+            <form id="loginForm" class="space-y-4">
+                <input type="password" id="passphrase" placeholder="Passphrase" 
+                    class="w-full p-3 bg-gray-700 rounded" required>
+                <input type="password" id="password" placeholder="Password" 
+                    class="w-full p-3 bg-gray-700 rounded" required>
+                <button type="submit" class="w-full bg-red-600 hover:bg-red-700 p-3 rounded font-bold">
+                    Authenticate
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div id="adminPanel" class="hidden p-6">
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-3xl font-bold">Ultra Admin Panel</h1>
+            <button onclick="logout()" class="bg-red-600 px-4 py-2 rounded">Logout</button>
+        </div>
+
+        <!-- Stats -->
+        <div id="stats" class="grid grid-cols-4 gap-4 mb-8"></div>
+
+        <!-- Users Table -->
+        <div class="bg-gray-800 rounded-lg p-6">
+            <h2 class="text-xl font-bold mb-4">All Users</h2>
+            <div id="usersTable" class="overflow-x-auto"></div>
+        </div>
+
+        <!-- Deposits -->
+        <div class="bg-gray-800 rounded-lg p-6 mt-6">
+            <h2 class="text-xl font-bold mb-4">Pending Deposits</h2>
+            <div id="depositsTable"></div>
+        </div>
+    </div>
+
+    <script>
+        const API = 'https://backcifbwerwix.onrender.com/api/x9z2k7m4';
+        let token = null;
+
+        function generateHeaders() {
+            const timestamp = Date.now();
+            // You need to implement HMAC generation client-side or use a secure method
+            return {
+                'Content-Type': 'application/json',
+                'x-ultra-admin-token': token,
+                'x-ultra-admin-timestamp': timestamp,
+                'x-ultra-admin-auth': 'YOUR_HMAC_HERE' // Implement properly
+            };
+        }
+
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const passphrase = document.getElementById('passphrase').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const res = await fetch(`${API}/auth/omega-login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ passphrase, password, challenge: Date.now() })
+                });
+
+                if (res.ok) {
+                    const data = await res.json();
+                    token = data.token;
+                    document.getElementById('loginScreen').classList.add('hidden');
+                    document.getElementById('adminPanel').classList.remove('hidden');
+                    loadData();
+                } else {
+                    alert('Access Denied');
+                }
+            } catch (error) {
+                alert('System Error');
+            }
+        });
+
+        async function loadData() {
+            // Load stats
+            const statsRes = await fetch(`${API}/stats/overview`, { headers: generateHeaders() });
+            const stats = await statsRes.json();
+            
+            document.getElementById('stats').innerHTML = `
+                <div class="bg-blue-600 p-4 rounded">
+                    <div class="text-2xl font-bold">${stats.users}</div>
+                    <div class="text-sm">Total Users</div>
+                </div>
+                <div class="bg-green-600 p-4 rounded">
+                    <div class="text-2xl font-bold">₹${stats.totalDeposits.toFixed(2)}</div>
+                    <div class="text-sm">Total Deposits</div>
+                </div>
+                <div class="bg-red-600 p-4 rounded">
+                    <div class="text-2xl font-bold">₹${stats.totalWithdrawals.toFixed(2)}</div>
+                    <div class="text-sm">Total Withdrawals</div>
+                </div>
+                <div class="bg-yellow-600 p-4 rounded">
+                    <div class="text-2xl font-bold">${stats.pendingDeposits}</div>
+                    <div class="text-sm">Pending Deposits</div>
+                </div>
+            `;
+
+            // Load users
+            const usersRes = await fetch(`${API}/users/all`, { headers: generateHeaders() });
+            const { users } = await usersRes.json();
+            
+            document.getElementById('usersTable').innerHTML = `
+                <table class="w-full">
+                    <thead>
+                        <tr class="border-b border-gray-700">
+                            <th class="text-left p-2">Username</th>
+                            <th class="text-left p-2">Email</th>
+                            <th class="text-left p-2">Balance</th>
+                            <th class="text-left p-2">XP</th>
+                            <th class="text-left p-2">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${users.map(u => `
+                            <tr class="border-b border-gray-700">
+                                <td class="p-2">${u.username}</td>
+                                <td class="p-2">${u.email}</td>
+                                <td class="p-2">₹${u.balance.toFixed(2)}</td>
+                                <td class="p-2">${u.xp}</td>
+                                <td class="p-2">
+                                    <button onclick="editBalance('${u.id}')" class="bg-blue-600 px-2 py-1 rounded text-sm">Edit</button>
+                                    <button onclick="banUser('${u.id}')" class="bg-red-600 px-2 py-1 rounded text-sm">Ban</button>
+                                </td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+        }
+
+        function logout() {
+            token = null;
+            document.getElementById('adminPanel').classList.add('hidden');
+            document.getElementById('loginScreen').classList.remove('hidden');
+        }
+
+        async function editBalance(userId) {
+            const amount = prompt('Enter new balance:');
+            if (!amount) return;
+
+            await fetch(`${API}/users/${userId}/balance`, {
+                method: 'POST',
+                headers: generateHeaders(),
+                body: JSON.stringify({ amount: parseFloat(amount), operation: 'set' })
+            });
+
+            loadData();
+        }
+
+        async function banUser(userId) {
+            if (!confirm('Ban this user?')) return;
+
+            await fetch(`${API}/users/${userId}/ban`, {
+                method: 'POST',
+                headers: generateHeaders(),
+                body: JSON.stringify({ banned: true })
+            });
+
+            loadData();
+        }
+    </script>
+</body>
+</html>

