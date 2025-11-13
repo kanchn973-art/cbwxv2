@@ -1,4 +1,4 @@
-// server.js - Complete Production Backend with File Upload
+// server.js - FIXED with Proxy Trust
 const express = require('express');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -16,17 +16,12 @@ const prisma = new PrismaClient();
 const app = express();
 const server = http.createServer(app);
 
+// ===== FIX: TRUST PROXY (Must be first!) =====
+app.set('trust proxy', 1); // Trust first proxy (Render)
+
 // Security Headers
 app.use(helmet({
     crossOriginResourcePolicy: { policy: "cross-origin" },
-    contentSecurityPolicy: {
-        directives: {
-            defaultSrc: ["'self'"],
-            styleSrc: ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net"],
-            scriptSrc: ["'self'", "https://cdn.jsdelivr.net"],
-            imgSrc: ["'self'", "data:", "https:"],
-        }
-    }
 }));
 
 // CORS Configuration
@@ -45,34 +40,24 @@ app.use(cors({
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-
-// File Upload Middleware (for deposit screenshots)
 app.use(fileUpload({
-    limits: { fileSize: 5 * 1024 * 1024 }, // 5MB max
-    abortOnLimit: true,
-    createParentPath: true
+    limits: { fileSize: 5 * 1024 * 1024 },
+    abortOnLimit: true
 }));
 
-// Ultra-secret admin panel (obscure path)
-app.use('/api/x9z2k7m4', require('./routes/ultra-admin'));
-
-// Rate Limiting
-const authLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000,
-    max: 5,
-    message: 'Too many auth attempts'
+// ===== FIX: Rate Limiting with Proxy Support =====
+const createLimiter = (windowMs, max) => rateLimit({
+    windowMs,
+    max,
+    standardHeaders: true,
+    legacyHeaders: false,
+    // Skip failed requests
+    skipFailedRequests: true
 });
 
-const otpLimiter = rateLimit({
-    windowMs: 5 * 60 * 1000,
-    max: 3,
-    message: 'Too many OTP requests'
-});
-
-const apiLimiter = rateLimit({
-    windowMs: 1 * 60 * 1000,
-    max: 100
-});
+const authLimiter = createLimiter(15 * 60 * 1000, 5);
+const otpLimiter = createLimiter(5 * 60 * 1000, 3);
+const apiLimiter = createLimiter(1 * 60 * 1000, 100);
 
 // Database Connection
 async function connectDB() {
@@ -256,7 +241,6 @@ async function processBets(outcome) {
     }
 }
 
-// Store gameState in app.locals for route access
 app.locals.gameState = gameState;
 
 // Routes
@@ -266,7 +250,7 @@ const walletRoutes = require('./routes/wallet');
 const profileRoutes = require('./routes/profile');
 const adminRoutes = require('./routes/admin');
 
-// Auth Routes
+// Auth Routes with Rate Limiting
 app.post('/register', authLimiter, authRoutes.register);
 app.post('/login', authLimiter, authRoutes.login);
 app.post('/logout', authRoutes.logout);
@@ -282,16 +266,12 @@ app.get('/verify-token', verifyToken, (req, res) => {
 app.use('/api', apiLimiter);
 app.use('/api/game', gameRoutes);
 app.use('/api/admin', adminRoutes);
-
-// Wallet Routes (both paths for compatibility)
 app.use('/wallet', walletRoutes);
 app.use('/api', walletRoutes);
-
-// Profile Routes (both /profile and /api/profile for compatibility)
 app.use('/profile', profileRoutes);
 app.use('/api/profile', profileRoutes);
 
-// Notifications (direct path for frontend)
+// Notifications
 app.get('/notifications', verifyToken, async (req, res) => {
     const notifications = await prisma.notification.findMany({
         where: { userId: req.user.id },
@@ -308,7 +288,7 @@ app.post('/clear-notifications', verifyToken, async (req, res) => {
     res.json({ message: 'Notifications cleared' });
 });
 
-// Legacy routes for frontend compatibility
+// Legacy routes
 app.get('/history', async (req, res) => {
     const limit = parseInt(req.query.limit) || 50;
     const history = await prisma.history.findMany({
