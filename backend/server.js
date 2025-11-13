@@ -145,18 +145,26 @@ setInterval(async () => {
         io.emit('newOutcome', outcome);
 
         try {
-            await prisma.history.create({
-                data: {
-                    roundId: outcome.roundId,
-                    number: outcome.number,
-                    color: outcome.color,
-                    size: outcome.size
-                }
+            // Check if history entry already exists for this round
+            const existingHistory = await prisma.history.findUnique({
+                where: { roundId: outcome.roundId }
             });
+
+            // Only create if it doesn't exist
+            if (!existingHistory) {
+                await prisma.history.create({
+                    data: {
+                        roundId: outcome.roundId,
+                        number: outcome.number,
+                        color: outcome.color,
+                        size: outcome.size
+                    }
+                });
+            }
 
             await processBets(outcome);
         } catch (error) {
-            console.error('Game processing error:', error);
+            console.error('Game processing error:', error.message);
         }
 
         gameState.currentRoundId++;

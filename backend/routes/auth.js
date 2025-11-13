@@ -1,4 +1,4 @@
-// routes/auth.js - FIXED with OTP Console Logging
+// routes/auth.js - FIXED Authentication with proper flow
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { PrismaClient } = require('@prisma/client');
@@ -21,11 +21,10 @@ function generateOTP() {
     return crypto.randomInt(100000, 999999).toString();
 }
 
-// Send OTP Email with CONSOLE LOGGING FOR TESTING
+// Send OTP Email
 async function sendOTPEmail(email, otp) {
-    // ===== LOG OTP TO CONSOLE FOR TESTING =====
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-    console.log('🔐 OTP GENERATED FOR TESTING');
+    console.log('🔐 OTP GENERATED');
     console.log(`📧 Email: ${email}`);
     console.log(`🔢 OTP: ${otp}`);
     console.log(`⏰ Expires: ${new Date(Date.now() + 5 * 60 * 1000).toLocaleString()}`);
@@ -48,7 +47,6 @@ async function sendOTPEmail(email, otp) {
                     .otp-box { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-size: 36px; font-weight: bold; padding: 20px; border-radius: 10px; text-align: center; margin: 30px 0; letter-spacing: 8px; }
                     .info { color: #666; font-size: 14px; line-height: 1.6; margin: 20px 0; }
                     .footer { background: #f8f8f8; padding: 20px; text-align: center; color: #999; font-size: 12px; }
-                    .warning { background: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 20px 0; color: #856404; }
                 </style>
             </head>
             <body>
@@ -58,19 +56,12 @@ async function sendOTPEmail(email, otp) {
                     </div>
                     <div class="content">
                         <h2 style="color: #333;">Email Verification</h2>
-                        <p class="info">You're almost there! Use the code below to verify your email and start playing.</p>
-                        
+                        <p class="info">Use the code below to verify your email:</p>
                         <div class="otp-box">${otp}</div>
-                        
                         <p class="info">This code will expire in <strong>5 minutes</strong>.</p>
-                        
-                        <div class="warning">
-                            ⚠️ If you didn't request this code, please ignore this email or contact support if you're concerned.
-                        </div>
                     </div>
                     <div class="footer">
                         <p>© 2024 CberWinX. All rights reserved.</p>
-                        <p>This is an automated message, please do not reply.</p>
                     </div>
                 </div>
             </body>
@@ -80,10 +71,9 @@ async function sendOTPEmail(email, otp) {
 
     try {
         await transporter.sendMail(mailOptions);
-        console.log(`✅ OTP email sent successfully to ${email}`);
+        console.log(`✅ OTP email sent to ${email}`);
     } catch (error) {
-        console.error(`❌ Failed to send OTP email to ${email}:`, error.message);
-        // Don't throw - we've logged the OTP, so user can still proceed
+        console.error(`❌ Failed to send OTP:`, error.message);
     }
 }
 
@@ -105,7 +95,7 @@ exports.register = async (req, res) => {
             return res.status(400).json({ message: 'Invalid email format' });
         }
 
-        // Check existing
+        // Check existing user
         const existing = await prisma.user.findFirst({
             where: {
                 OR: [{ username }, { email }]
@@ -113,9 +103,17 @@ exports.register = async (req, res) => {
         });
 
         if (existing) {
-            return res.status(400).json({ 
-                message: existing.email === email ? 'Email already registered' : 'Username already taken' 
-            });
+            // If user exists but not verified, delete and allow re-registration
+            if (!existing.verified) {
+                await prisma.user.delete({
+                    where: { id: existing.id }
+                });
+                console.log(`🗑️ Deleted unverified user: ${existing.email}`);
+            } else {
+                return res.status(400).json({ 
+                    message: existing.email === email ? 'Email already registered' : 'Username already taken' 
+                });
+            }
         }
 
         // Hash password
@@ -134,7 +132,8 @@ exports.register = async (req, res) => {
                 referralCode: username,
                 referredBy: referralCode || null,
                 otp,
-                otpExpiration
+                otpExpiration,
+                verified: false
             }
         });
 
@@ -155,12 +154,12 @@ exports.register = async (req, res) => {
             }
         }
 
-        // Send OTP (with console logging)
+        // Send OTP
         await sendOTPEmail(email, otp);
 
         res.status(201).json({ 
-            message: 'Registration successful! Check your email (and console) for OTP.',
-            userId: newUser.id 
+            message: 'Registration successful! Check your email for OTP.',
+            email: email
         });
     } catch (error) {
         console.error('Registration error:', error);
@@ -189,16 +188,17 @@ exports.verifyOTP = async (req, res) => {
 
         // Check expiration
         if (new Date() > user.otpExpiration) {
-            return res.status(400).json({ message: 'OTP expired. Request a new one.' });
+            // Delete expired unverified user
+            await prisma.user.delete({ where: { id: user.id } });
+            return res.status(400).json({ message: 'OTP expired. Please register again.' });
         }
 
         // Verify OTP
         if (user.otp !== otp) {
-            console.log(`❌ OTP mismatch for ${email}: Expected ${user.otp}, Got ${otp}`);
             return res.status(400).json({ message: 'Invalid OTP' });
         }
 
-        // Update user
+        // Update user as verified and generate token
         await prisma.user.update({
             where: { id: user.id },
             data: {
@@ -208,9 +208,28 @@ exports.verifyOTP = async (req, res) => {
             }
         });
 
-        console.log(`✅ User ${email} verified successfully`);
+        // Generate JWT token
+        const token = jwt.sign(
+            { id: user.id, username: user.username },
+            process.env.JWT_SECRET,
+            { expiresIn: '7d' }
+        );
 
-        res.json({ message: 'Email verified successfully! You can now login.' });
+        // Set secure cookie
+        res.cookie('auth_token', token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === 'production',
+            sameSite: 'strict',
+            maxAge: 7 * 24 * 60 * 60 * 1000
+        });
+
+        console.log(`✅ User ${email} verified and logged in`);
+
+        res.json({ 
+            message: 'Email verified successfully!',
+            username: user.username,
+            token: token
+        });
     } catch (error) {
         console.error('OTP verification error:', error);
         res.status(500).json({ message: 'Server error during verification' });
@@ -233,9 +252,11 @@ exports.login = async (req, res) => {
             return res.status(401).json({ message: 'Invalid credentials' });
         }
 
-        // Check verified
+        // Check if verified
         if (!user.verified) {
-            return res.status(403).json({ message: 'Please verify your email first' });
+            // Delete unverified user and prompt re-registration
+            await prisma.user.delete({ where: { id: user.id } });
+            return res.status(403).json({ message: 'Email not verified. Please register again.' });
         }
 
         // Verify password
@@ -259,13 +280,14 @@ exports.login = async (req, res) => {
             maxAge: 7 * 24 * 60 * 60 * 1000
         });
 
-        console.log(`✅ User ${email} logged in successfully`);
+        console.log(`✅ User ${email} logged in`);
 
         res.json({
             message: 'Login successful',
             username: user.username,
             balance: user.balance,
-            xp: user.xp
+            xp: user.xp,
+            token: token
         });
     } catch (error) {
         console.error('Login error:', error);
@@ -330,7 +352,6 @@ exports.requestPasswordReset = async (req, res) => {
             return res.status(400).json({ message: 'User not verified' });
         }
 
-        // Generate reset token
         const resetToken = crypto.randomBytes(32).toString('hex');
         const resetTokenExpiration = new Date(Date.now() + 60 * 60 * 1000);
 
@@ -356,7 +377,6 @@ exports.requestPasswordReset = async (req, res) => {
                         Reset Password
                     </a>
                     <p>This link expires in 1 hour.</p>
-                    <p>If you didn't request this, ignore this email.</p>
                 </div>
             `
         };
