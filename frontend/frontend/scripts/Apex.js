@@ -1,1 +1,630 @@
-function _0x4d53(_0x16a01e,_0x24eb13){const _0x4f36b8=_0x4f36();return _0x4d53=function(_0x4d5398,_0x51267f){_0x4d5398=_0x4d5398-0xe2;let _0x479ea5=_0x4f36b8[_0x4d5398];return _0x479ea5;},_0x4d53(_0x16a01e,_0x24eb13);}function _0x4f36(){const _0x30eaa5=['</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22w-6\x20h-6\x20rounded-full\x20','submitBet','24gtYpht','w-12\x20h-6','success','<p\x20class=\x22text-gray-400\x22>Error\x20fetching\x20bet\x20history.\x20Please\x20try\x20again\x20later.</p>','betValue','.neon-button,\x20.betnumber-button','Error:\x20','3XhuVIb','Bet\x20has\x20been\x20canceled.','add','purple','createElement','#prevPage','transactions','find','251308rpAVkD','empty','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20justify-between\x20mb-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22font-semibold\x22>Payout:</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22','forEach','neon-buttonh\x20green-purple','status','/time-remaining','input[type=\x22checkbox\x22]','.number-container','div','decimal','hidden','\x20purple','\x20rounded-full\x20border-2\x20border-white','big','Failed\x20to\x20place\x20the\x20bet','bet-item\x20transition-transform\x20transform\x20hover:scale-105\x20bg-gray-800\x20text-white\x20p-4\x20rounded-lg\x20shadow-lg\x20hover:bg-gray-700\x20cursor-pointer\x20flex\x20flex-col\x20justify-between\x20my-2\x20border-b\x20border-gray-600\x20hover:shadow-xl','Failed\x20to\x20fetch\x20game\x20history','querySelector','en-IN','log','hide','charAt','toLocaleString','bg-neon-red','text','/wallet','#myHistoryContent','querySelectorAll','#chartContainer','win','reverse','data','Redirecting\x20to\x20auth\x20page\x20due\x20to:','\x20attempts','innerHTML','1146835PbUSDx','bg-neon-purple','closePopup','include','green','/api/user/bet-history','infoIcon','#decreaseBtn','red','addClass','\x20with\x20amount\x20','className','timer','Please\x20select\x20a\x20bet\x20type\x20(color,\x20size,\x20or\x20number)\x20before\x20submitting.','historyData','.bg-gray-700[data-multiplier]','active','Amount-container','classList','208730lscZnw','Reconnected\x20after\x20','timeRemaining','remove','\x20red','<p\x20class=\x22text-gray-400\x22>No\x20bet\x20history\x20available.</p>','payoutAmount','alert','<button\x20class=\x22','green-purple','#historyList','Bet\x20placed\x20successfully:','<span\x20class=\x22text-gray-300\x22>','size','color','length','getElementById','stringify','includes','text-gray-500','selectedBet','7abtdWo','#bet-amount','271259AyUQHy','gameHistoryButton','neon-buttonh\x20red-purple','addEventListener','Failed\x20to\x20place\x20bet\x20in\x20last\x205\x20seconds.','\x20green','Please\x20enter\x20a\x20valid\x20bet\x20amount.','\x20text-white\x20font-semibold\x20rounded-full\x20shadow-md\x22>','POST','text-green-600\x20font-bold','Failed\x20to\x20place\x20bet.\x20Please\x20try\x20again.','number','text-gray-300','message','chartsButton','betType','betHistory','balance','toFixed','/history','\x20text-white\x20font-semibold\x20rounded\x20','cloneNode','warn','alert-success','/verify-token','href','</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','toUpperCase','textContent','auth.html','error','show','1272372IKmGIG','Error\x20fetching\x20remaining\x20time:','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22neon-buttonh\x20','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20justify-between\x20mb-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22font-semibold\x22>Bet\x20Amount:</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-gray-300\x22>₹','4931844prlJlW','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20justify-between\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22font-semibold\x22>Date\x20&\x20Time:</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22text-gray-500\x22>','dataset','body','GET','Error\x20fetching\x20game\x20history:','.bg-gray-700[data-value]','bg-yellow-500','bg-gray-500','bg-blue-500','5782352ZZnZIG','style','selected','walletBalance','block','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22page-btn\x20bg-gray-700\x20text-white\x20p-2\x20rounded\x20hover:bg-gray-500\x20','\x20p-2\x20inline-block\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','infoPopup','json','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20justify-between\x20mb-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22font-semibold\x22>Bet\x20Value:</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x22>','click','slice','betAmount','createdAt','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22prevPage\x22\x20class=\x22btn\x20bg-gray-600\x20text-white\x20p-2\x20rounded\x20hover:bg-gray-500\x22>Previous</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','display','append','non-outcome-number','location','\x20text-white\x20font-semibold\x20rounded\x20shadow-md\x22>','33OdQqGv','Authentication\x20failed','value','</button>','cancelBet','ceil','18cBOgal','neon-buttonh\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','appendChild','checked','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','w-24\x20h-8'];_0x4f36=function(){return _0x30eaa5;};return _0x4f36();}(function(_0x2207ef,_0x3e36ad){const _0xa0fd0a=_0x4d53,_0x27e32c=_0x2207ef();while(!![]){try{const _0x5c1bce=parseInt(_0xa0fd0a(0xfb))/0x1+parseInt(_0xa0fd0a(0x11b))/0x2+-parseInt(_0xa0fd0a(0x153))/0x3*(-parseInt(_0xa0fd0a(0x15b))/0x4)+parseInt(_0xa0fd0a(0x17f))/0x5*(-parseInt(_0xa0fd0a(0x14c))/0x6)+-parseInt(_0xa0fd0a(0xf9))/0x7*(parseInt(_0xa0fd0a(0x129))/0x8)+-parseInt(_0xa0fd0a(0x143))/0x9*(parseInt(_0xa0fd0a(0xe4))/0xa)+-parseInt(_0xa0fd0a(0x13d))/0xb*(-parseInt(_0xa0fd0a(0x11f))/0xc);if(_0x5c1bce===_0x3e36ad)break;else _0x27e32c['push'](_0x27e32c['shift']());}catch(_0x528f63){_0x27e32c['push'](_0x27e32c['shift']());}}}(_0x4f36,0x7f409),document['addEventListener']('DOMContentLoaded',function(){const _0x2728b1=_0x4d53;console[_0x2728b1(0x16f)]=function(){},console[_0x2728b1(0x111)]=function(){},console[_0x2728b1(0x119)]=function(){},console['info']=function(){};let _0x4a209d='https://backcifbwerwix.onrender.com',_0x448746=null;async function _0x3dd7ab(){const _0x95c174=_0x2728b1;try{_0x448746=await _0x5bd5bd(),await _0x2590b9(),_0x31a033();}catch(_0x5630ba){console[_0x95c174(0x119)](_0x95c174(0x17c),_0x5630ba),window[_0x95c174(0x13b)][_0x95c174(0x114)]=_0x95c174(0x118);}}async function _0x5bd5bd(){const _0x56e232=_0x2728b1;let _0x1525ab=await fetch(_0x4a209d+_0x56e232(0x113),{'method':'GET','credentials':_0x56e232(0x182)});if(!_0x1525ab['ok'])throw Error(_0x56e232(0x13e));let _0x1e75ad=await _0x1525ab[_0x56e232(0x131)]();return _0x1e75ad;}async function _0x2590b9(){const _0x3eb38a=_0x2728b1;try{let _0x12ebe6=await fetch(_0x4a209d+_0x3eb38a(0x175),{'method':_0x3eb38a(0x123),'credentials':_0x3eb38a(0x182)});if(!_0x12ebe6['ok'])throw Error('Failed\x20to\x20fetch\x20wallet\x20details');let _0x178fe5=await _0x12ebe6[_0x3eb38a(0x131)]();transactions=_0x178fe5[_0x3eb38a(0x159)]['reverse']();let _0x359a6c=parseFloat(_0x178fe5[_0x3eb38a(0x10c)]);_0x5ebf1a(_0x359a6c);}catch(_0x46c0b4){}}function _0x5ebf1a(_0xb63496){const _0x6d927d=_0x2728b1;let _0x5401bd=document[_0x6d927d(0xf4)](_0x6d927d(0x12c));if(_0x5401bd){let _0x4c04fc=_0xb63496[_0x6d927d(0x172)](_0x6d927d(0x16e),{'style':_0x6d927d(0x165),'maximumFractionDigits':0x2,'minimumFractionDigits':0x2});_0x5401bd[_0x6d927d(0x117)]='₹'+_0x4c04fc;}}function _0xc753bc(_0x303b74,_0x5dad81){const _0x8f7c56=_0x2728b1;let _0x2310cf=document['createElement'](_0x8f7c56(0x164));_0x2310cf[_0x8f7c56(0x117)]=_0x303b74,_0x2310cf[_0x8f7c56(0xe3)][_0x8f7c56(0x155)](_0x8f7c56(0xeb)),_0x8f7c56(0x14e)===_0x5dad81?_0x2310cf[_0x8f7c56(0xe3)]['add'](_0x8f7c56(0x112)):_0x8f7c56(0x119)===_0x5dad81&&_0x2310cf['classList'][_0x8f7c56(0x155)]('alert-error'),document[_0x8f7c56(0x122)]['appendChild'](_0x2310cf),setTimeout(()=>{const _0x531561=_0x8f7c56;_0x2310cf[_0x531561(0xe7)]();},0xbb8);}async function _0x5a4de2(){const _0x2712f0=_0x2728b1;let _0x5809ca=document['getElementById']('myHistoryContent'),_0x266964=document['getElementById']('myHistoryList');_0x266964[_0x2712f0(0x17e)]='';try{let _0x31a39a=await fetch(_0x4a209d+_0x2712f0(0x184),{'method':_0x2712f0(0x123),'credentials':_0x2712f0(0x182)});if(!_0x31a39a['ok'])throw Error(_0x2712f0(0x152)+_0x31a39a[_0x2712f0(0x160)]+'\x20'+_0x31a39a['statusText']);let _0xce6774=await _0x31a39a[_0x2712f0(0x131)]();_0xce6774[_0x2712f0(0x10b)]&&_0xce6774['betHistory'][_0x2712f0(0xf3)]>0x0?(_0x5809ca['style'][_0x2712f0(0x138)]='block',_0xce6774[_0x2712f0(0x10b)][_0x2712f0(0x17a)](),_0xce6774[_0x2712f0(0x10b)][_0x2712f0(0x15e)](_0x391fa5=>{const _0x2bb816=_0x2712f0;let _0x2ed9c4=_0x391fa5[_0x2bb816(0x179)]?'+₹'+_0x391fa5[_0x2bb816(0xea)]:'₹0',_0x20104e=_0x391fa5['win']?_0x2bb816(0x104):_0x2bb816(0xf7),_0x1a0c20='';if([_0x2bb816(0x187),_0x2bb816(0x183),_0x2bb816(0x156)][_0x2bb816(0xf6)](_0x391fa5[_0x2bb816(0x150)])){let _0x56aa59=_0x2bb816(0x144)+_0x391fa5[_0x2bb816(0x150)];_0x1a0c20=_0x2bb816(0xec)+_0x56aa59+_0x2bb816(0x13c)+(_0x391fa5[_0x2bb816(0x150)][_0x2bb816(0x171)](0x0)[_0x2bb816(0x116)]()+_0x391fa5['betValue'][_0x2bb816(0x134)](0x1))+_0x2bb816(0x140);}else{if(_0x2bb816(0x169)===_0x391fa5[_0x2bb816(0x150)]||'small'===_0x391fa5[_0x2bb816(0x150)]){let _0x4a1b1d='big'===_0x391fa5[_0x2bb816(0x150)]?_0x2bb816(0x126):_0x2bb816(0x128);_0x1a0c20='<button\x20class=\x22'+_0x4a1b1d+'\x20text-white\x20font-semibold\x20rounded\x20shadow-md\x22>'+(_0x391fa5['betValue']['charAt'](0x0)[_0x2bb816(0x116)]()+_0x391fa5[_0x2bb816(0x150)][_0x2bb816(0x134)](0x1))+_0x2bb816(0x140);}else{if(_0x2bb816(0x106)==typeof _0x391fa5[_0x2bb816(0x150)]){let _0x590346=function _0x2a946d(_0x2e64e2){const _0x2989bf=_0x2bb816;switch(_0x2e64e2){case 0x0:return _0x2989bf(0xfd);case 0x5:return _0x2989bf(0x15f);case 0x1:case 0x3:case 0x7:case 0x9:return'neon-buttonh\x20red';case 0x2:case 0x4:case 0x6:case 0x8:return'neon-buttonh\x20green';default:return _0x2989bf(0x107);}}(_0x391fa5[_0x2bb816(0x150)]);_0x1a0c20=_0x2bb816(0xec)+_0x590346+_0x2bb816(0x102)+_0x391fa5[_0x2bb816(0x150)]+_0x2bb816(0x140);}else _0x1a0c20=_0x2bb816(0xf0)+_0x391fa5[_0x2bb816(0x150)]+'</span>';}}let _0x5cb43c=document[_0x2bb816(0x157)](_0x2bb816(0x164));_0x5cb43c[_0x2bb816(0x18a)]=_0x2bb816(0x16b),_0x5cb43c[_0x2bb816(0x17e)]=_0x2bb816(0x132)+_0x1a0c20+_0x2bb816(0x15d)+_0x20104e+'\x22>'+_0x2ed9c4+_0x2bb816(0x11e)+_0x391fa5[_0x2bb816(0x135)]+_0x2bb816(0x120)+new Date(_0x391fa5[_0x2bb816(0x136)])[_0x2bb816(0x172)]()+_0x2bb816(0x148),_0x266964[_0x2bb816(0x146)](_0x5cb43c);})):(_0x266964[_0x2712f0(0x17e)]=_0x2712f0(0xe9),_0x5809ca[_0x2712f0(0x12a)]['display']=_0x2712f0(0x12d));}catch(_0x128848){_0x266964['innerHTML']=_0x2712f0(0x14f),_0x5809ca[_0x2712f0(0x12a)][_0x2712f0(0x138)]=_0x2712f0(0x12d);}}async function _0x31a033(_0x526b3b=''){const _0x3993df=_0x2728b1;try{let _0x2448c7=await fetch(_0x4a209d+_0x3993df(0x10e),{'method':_0x3993df(0x123),'credentials':_0x3993df(0x182)});if(!_0x2448c7['ok'])throw Error(_0x3993df(0x16c));let _0x36be9e=await _0x2448c7[_0x3993df(0x131)]();window[_0x3993df(0x18d)]=_0x36be9e,_0x3993df(0x106)===_0x526b3b?function _0x3f5a5f(_0x1bcddb){const _0x215b93=_0x3993df;let _0x278f29=$(_0x215b93(0x178));_0x278f29['empty'](),_0x1bcddb[_0x215b93(0x15e)](_0x5cf2f9=>{const _0x9b0d42=_0x215b93;let _0x2f0d8a=$('\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22chart-item\x20p-4\x20md:p-6\x20lg:p-8\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22number-container\x20flex\x20justify-center\x20items-center\x20gap-1\x20md:gap-2\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20'),_0x1607e0=_0x2f0d8a[_0x9b0d42(0x15a)](_0x9b0d42(0x163));for(let _0x1b4560=0x0;_0x1b4560<=0x9;_0x1b4560++){let _0x19890a='',_0x438d27='text-xs\x20sm:text-sm\x20md:text-base';_0x1b4560===_0x5cf2f9[_0x9b0d42(0x106)]?(_0x19890a=_0x9b0d42(0x156)===_0x5cf2f9[_0x9b0d42(0xf2)]?_0x9b0d42(0x156):_0x9b0d42(0x187)===_0x5cf2f9[_0x9b0d42(0xf2)]?_0x9b0d42(0x187):'green'===_0x5cf2f9['color']?_0x9b0d42(0x183):_0x9b0d42(0xed),_0x438d27+=_0x9b0d42(0x168)):_0x19890a=_0x9b0d42(0x13a),_0x1607e0['append'](_0x9b0d42(0x11d)+_0x19890a+'\x20'+_0x438d27+_0x9b0d42(0x12f)+_0x1b4560+_0x9b0d42(0x145));}_0x278f29[_0x9b0d42(0x139)](_0x2f0d8a);});}(_0x36be9e):_0x2875ec(_0x36be9e);}catch(_0x598b6a){console[_0x3993df(0x119)](_0x3993df(0x124));}}document[_0x2728b1(0xf4)](_0x2728b1(0xfc))[_0x2728b1(0xfe)](_0x2728b1(0x133),function(){const _0x312c1b=_0x2728b1;_0x19067f=0x1,_0x31a033(),$(_0x312c1b(0x178))[_0x312c1b(0x170)](),$(_0x312c1b(0x176))[_0x312c1b(0x170)](),$(_0x312c1b(0xee))[_0x312c1b(0x11a)]();}),document[_0x2728b1(0xf4)]('myHistoryButton')['addEventListener']('click',function(){const _0x242f49=_0x2728b1;_0x19067f=0x1,_0x5a4de2(),$('#chartContainer')[_0x242f49(0x170)](),$(_0x242f49(0xee))['hide'](),$(_0x242f49(0x176))['show']();}),document[_0x2728b1(0xf4)](_0x2728b1(0x109))[_0x2728b1(0xfe)](_0x2728b1(0x133),function(){const _0x266ce6=_0x2728b1;_0x19067f=0x1,_0x31a033(_0x266ce6(0x106)),$(_0x266ce6(0xee))[_0x266ce6(0x170)](),$(_0x266ce6(0x176))['hide'](),$(_0x266ce6(0x178))[_0x266ce6(0x11a)]();});let _0x19067f=0x1;function _0x2875ec(_0x1ab00a){const _0x4d395f=_0x2728b1;let _0x32fc66=$(_0x4d395f(0xee));if(_0x32fc66[_0x4d395f(0x15c)](),0x0===_0x1ab00a['length']){_0x32fc66[_0x4d395f(0x139)]('<p>No\x20game\x20history\x20available.</p>'),_0x55dd0f(0x0);return;}let _0x3404c3=Math[_0x4d395f(0x142)](_0x1ab00a[_0x4d395f(0xf3)]/0xa),_0x485c4e=(_0x19067f-0x1)*0xa,_0x577f13=_0x1ab00a['slice'](_0x485c4e,_0x485c4e+0xa);_0x577f13[_0x4d395f(0x15e)](_0x478402=>{const _0xd535c1=_0x4d395f;let _0x42ba61='',_0x3642cf='neon-buttonh';0x0===_0x478402[_0xd535c1(0x106)]?(_0x42ba61='diagonal-neon-red-purple',_0x3642cf+=_0xd535c1(0x167)):0x5===_0x478402[_0xd535c1(0x106)]?(_0x42ba61='diagonal-neon-green-purple',_0x3642cf+=_0xd535c1(0x167)):'purple'===_0x478402[_0xd535c1(0xf2)]?(_0x42ba61=_0xd535c1(0x180),_0x3642cf+=_0xd535c1(0x167)):(_0x42ba61={'red':_0xd535c1(0x173),'green':'bg-neon-green'}[_0x478402[_0xd535c1(0xf2)]]||_0xd535c1(0x127),_0x3642cf+={'red':_0xd535c1(0xe8),'green':_0xd535c1(0x100)}[_0x478402[_0xd535c1(0xf2)]]||'');let _0x24d47f=_0xd535c1(0x169)===_0x478402['size']?_0xd535c1(0x149):_0xd535c1(0x14d),_0x5d32b1=_0xd535c1(0x169)===_0x478402[_0xd535c1(0xf1)]?_0xd535c1(0x126):_0xd535c1(0x128),_0x2192d3=$('\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22history-item\x20transition-transform\x20transform\x20hover:scale-105\x20bg-gray-800\x20text-white\x20p-4\x20rounded-lg\x20shadow-lg\x20hover:bg-gray-700\x20cursor-pointer\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22flex\x20items-center\x20justify-between\x20space-x-4\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22'+_0x3642cf+'\x22>'+_0x478402['number']+'</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22'+_0x5d32b1+_0xd535c1(0x10f)+_0x24d47f+'\x22>'+_0x478402['size']+_0xd535c1(0x14a)+_0x42ba61+'\x22></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20');_0x32fc66[_0xd535c1(0x139)](_0x2192d3),setTimeout(()=>_0x2192d3[_0xd535c1(0x188)]('visible'),0x32);}),_0x55dd0f(_0x3404c3);}function _0x55dd0f(_0x21c1a8){const _0x3a57a6=_0x2728b1;let _0x13a6c6=$('#paginationControls');_0x13a6c6['empty'](),_0x19067f>0x1&&_0x13a6c6['append'](_0x3a57a6(0x137));for(let _0x242fef=0x1;_0x242fef<=_0x21c1a8;_0x242fef++)_0x13a6c6[_0x3a57a6(0x139)](_0x3a57a6(0x12e)+(_0x242fef===_0x19067f?_0x3a57a6(0x18f):'')+'\x22>'+_0x242fef+_0x3a57a6(0x115));_0x19067f<_0x21c1a8&&_0x13a6c6[_0x3a57a6(0x139)]('\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22nextPage\x22\x20class=\x22btn\x20bg-gray-600\x20text-white\x20p-2\x20rounded\x20hover:bg-gray-500\x22>Next</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20'),$(_0x3a57a6(0x158))['on'](_0x3a57a6(0x133),function(){const _0x160845=_0x3a57a6;_0x19067f>0x1&&(_0x19067f--,_0x2875ec(window[_0x160845(0x18d)]));}),$('#nextPage')['on']('click',function(){const _0x31bba2=_0x3a57a6;_0x19067f<_0x21c1a8&&(_0x19067f++,_0x2875ec(window[_0x31bba2(0x18d)]));}),$('.page-btn')['on'](_0x3a57a6(0x133),function(){const _0x2b9c59=_0x3a57a6;_0x19067f=parseInt($(this)[_0x2b9c59(0x174)]()),_0x2875ec(window[_0x2b9c59(0x18d)]);});}document[_0x2728b1(0xf4)](_0x2728b1(0x185))['addEventListener']('click',function(){const _0x554efa=_0x2728b1;document['getElementById'](_0x554efa(0x130))[_0x554efa(0xe3)][_0x554efa(0xe7)](_0x554efa(0x166));}),document[_0x2728b1(0xf4)](_0x2728b1(0x181))[_0x2728b1(0xfe)]('click',function(){const _0x49e94a=_0x2728b1;document[_0x49e94a(0xf4)](_0x49e94a(0x130))[_0x49e94a(0xe3)][_0x49e94a(0x155)](_0x49e94a(0x166));});let _0x393fc7=document[_0x2728b1(0x177)](_0x2728b1(0x151)),_0x2cc4bb=0x0,_0x1200b5=0x1,_0x353169={'betType':'','betValue':'','betAmount':0x0};function _0x5f083b(){const _0x38559a=_0x2728b1;if(isNaN(_0x2cc4bb)||_0x2cc4bb<=0x0){_0xc753bc('Please\x20enter\x20a\x20valid\x20bet\x20amount.','error');return;}$(_0x38559a(0xfa))[_0x38559a(0x174)](_0x2cc4bb[_0x38559a(0x10d)](0x2));}async function _0xf2af2a(){const _0x13ce80=_0x2728b1;try{let _0x5dbc9f=await fetch(_0x4a209d+_0x13ce80(0x161),{'method':_0x13ce80(0x123),'credentials':_0x13ce80(0x182)}),_0x3ac133=await _0x5dbc9f[_0x13ce80(0x131)](),_0xc5dcaf=_0x3ac133[_0x13ce80(0xe6)];_0xc5dcaf>=0x0&&(document[_0x13ce80(0xf4)](_0x13ce80(0x18b))['textContent']='00:'+(_0xc5dcaf<0xa?'0'+_0xc5dcaf:_0xc5dcaf));}catch(_0x57ebf3){console[_0x13ce80(0x119)](_0x13ce80(0x11c));}}_0x393fc7[_0x2728b1(0x15e)](_0x17da99=>{const _0x3f745e=_0x2728b1;_0x17da99[_0x3f745e(0xfe)]('click',function(){const _0x42e421=_0x3f745e;_0x353169[_0x42e421(0x10a)]=_0x17da99[_0x42e421(0x121)][_0x42e421(0x10a)],_0x353169['betValue']=_0x17da99[_0x42e421(0x121)]['betValue'],_0x353169[_0x42e421(0x135)]=_0x2cc4bb;let _0x339517=document['getElementById'](_0x42e421(0xe2));_0x339517[_0x42e421(0xe3)][_0x42e421(0xe7)]('hidden'),_0x339517[_0x42e421(0xe3)][_0x42e421(0x155)]('active');let _0x544d3e=_0x17da99[_0x42e421(0x110)](!0x0),_0x3c2eb1=document[_0x42e421(0xf4)](_0x42e421(0xf8));_0x3c2eb1['innerHTML']='',_0x3c2eb1[_0x42e421(0x146)](_0x544d3e);});}),$(_0x2728b1(0x125))['on'](_0x2728b1(0x133),function(){const _0x9de48f=_0x2728b1;let _0x9a66b3=parseInt($(this)[_0x9de48f(0x17b)](_0x9de48f(0x13f)));console[_0x9de48f(0x16f)]('Bet\x20Value\x20Clicked:',_0x9a66b3),!isNaN(_0x9a66b3)&&_0x9a66b3>0x0&&(_0x2cc4bb=_0x9a66b3,_0x5f083b());}),$('.bg-gray-700[data-multiplier]')['on'](_0x2728b1(0x133),function(){const _0x3a3165=_0x2728b1;_0x1200b5=parseInt($(this)[_0x3a3165(0x17b)]('multiplier')),$(_0x3a3165(0x18e))['removeClass'](_0x3a3165(0x12b)),$(this)[_0x3a3165(0x188)](_0x3a3165(0x12b));}),$('#increaseBtn')['on'](_0x2728b1(0x133),function(){_0x2cc4bb+=_0x1200b5,_0x5f083b();}),$(_0x2728b1(0x186))['on']('click',function(){(_0x2cc4bb-=_0x1200b5)<0x0&&(_0x2cc4bb=0x0),_0x5f083b();}),setInterval(_0xf2af2a,0x3e8);let _0x30feb2=io(''+_0x4a209d,{'reconnectionAttempts':0x5,'reconnectionDelay':0x3e8});async function _0x2a8bad(){const _0xc5be8e=_0x2728b1;try{let _0xcb0275=await fetch(_0x4a209d+_0xc5be8e(0x161),{'method':'GET','credentials':'include'}),_0x351065=await _0xcb0275['json']();return _0x351065[_0xc5be8e(0xe6)];}catch(_0x45e58d){return console[_0xc5be8e(0x119)](_0xc5be8e(0x11c),_0x45e58d),0x0;}}function _0x130f8d(){const _0x10e9e5=_0x2728b1;_0x2cc4bb=0x0,_0x1200b5=0x1,_0x353169={'betType':'','betValue':'','betAmount':0x0},$(_0x10e9e5(0xfa))[_0x10e9e5(0x174)](_0x2cc4bb[_0x10e9e5(0x10d)](0x2)),$('#selectedBet')[_0x10e9e5(0x15c)]();let _0x52e3d8=document['getElementById'](_0x10e9e5(0xe2));_0x52e3d8[_0x10e9e5(0xe3)][_0x10e9e5(0xe7)](_0x10e9e5(0x18f)),_0x52e3d8['classList'][_0x10e9e5(0x155)](_0x10e9e5(0x166));}_0x30feb2['on']('newOutcome',()=>{_0x31a033();}),_0x30feb2['on']('connect_error',_0x321c05=>{const _0x346b6a=_0x2728b1;_0xc753bc('Attempting\x20to\x20reconnect...',_0x346b6a(0x119));}),_0x30feb2['on']('balanceUpdate',_0x481a23=>{const _0x2fcf4b=_0x2728b1;_0x5ebf1a(_0x481a23[_0x2fcf4b(0x10c)]);}),_0x30feb2['on']('reconnect',_0x2a07ca=>{const _0x1a1386=_0x2728b1;console[_0x1a1386(0x16f)](_0x1a1386(0xe5)+_0x2a07ca+_0x1a1386(0x17d)),_0xc753bc('Reconnected\x20to\x20server!',_0x1a1386(0x14e));}),_0xf2af2a(),document[_0x2728b1(0xf4)](_0x2728b1(0x14b))[_0x2728b1(0xfe)](_0x2728b1(0x133),async function(){const _0x51c686=_0x2728b1;let _0x81a93c=document[_0x51c686(0x16d)](_0x51c686(0x162));if(!_0x81a93c[_0x51c686(0x147)]){_0xc753bc('Please\x20agree\x20to\x20the\x20terms\x20before\x20submitting\x20your\x20bet.','error');return;}if(_0x2cc4bb<=0x0){_0xc753bc(_0x51c686(0x101),_0x51c686(0x119));return;}if(!_0x353169[_0x51c686(0x10a)]||!_0x353169[_0x51c686(0x150)]){_0xc753bc(_0x51c686(0x18c),_0x51c686(0x119));return;}let _0x588087=await _0x2a8bad();if(_0x588087>0x5){let _0x3b6d1d={'betType':_0x353169['betType'],'betValue':_0x353169[_0x51c686(0x150)],'betAmount':_0x2cc4bb};try{let _0x39f95d=await fetch(_0x4a209d+'/bet',{'method':_0x51c686(0x103),'headers':{'Content-Type':'application/json'},'credentials':_0x51c686(0x182),'body':JSON[_0x51c686(0xf5)](_0x3b6d1d)});if(!_0x39f95d['ok']){let _0x4a768f=await _0x39f95d[_0x51c686(0x131)]();throw Error(_0x4a768f[_0x51c686(0x108)]||_0x51c686(0x16a));}await _0x39f95d[_0x51c686(0x131)](),console[_0x51c686(0x16f)](_0x51c686(0xef));let _0x53ea8f='Bet\x20placed\x20successfully\x20on\x20'+_0x3b6d1d[_0x51c686(0x150)]+_0x51c686(0x189)+_0x3b6d1d[_0x51c686(0x135)]+'.';_0xc753bc(_0x53ea8f,_0x51c686(0x14e)),_0x130f8d();}catch(_0x19e221){_0xc753bc(_0x19e221['message']||_0x51c686(0x105),'error');}}else _0xc753bc(_0x51c686(0xff),_0x51c686(0x119));}),document[_0x2728b1(0xf4)](_0x2728b1(0x141))[_0x2728b1(0xfe)](_0x2728b1(0x133),function(){const _0x595449=_0x2728b1;_0x130f8d(),_0xc753bc(_0x595449(0x154),_0x595449(0x14e));let _0xb63530=document[_0x595449(0xf4)](_0x595449(0xe2));_0xb63530[_0x595449(0xe3)]['remove']('active'),_0xb63530[_0x595449(0xe3)][_0x595449(0x155)](_0x595449(0x166));}),_0x3dd7ab();}));
+document.addEventListener('DOMContentLoaded', function () {
+    // Suppress all console output (log, warn, error, info, etc.)
+console.log = function() {};
+console.warn = function() {};
+console.error = function() {};
+console.info = function() {};
+
+const baseurl = 'https://cwxv2be.onrender.com'
+// Define a variable to store user information
+let user = null;
+// Define a variable to store the audio object and songs array
+
+// Check user authentication and fetch wallet details when the page loads
+async function init() {
+    try {
+        user = await checkAuth(); // Store the user data
+        await fetchWalletDetails(); // Fetch wallet details after successful authentication
+        fetchGameHistory(); // Fetch game history after wallet details
+    } catch (error) {
+        console.error("Redirecting to auth page due to:", error);
+        window.location.href = 'auth.html'; // Redirect to login/register page if not authenticated
+    }
+}
+
+// Function to check user authentication
+async function checkAuth() {
+    const response = await fetch(`${baseurl}/verify-token`, {
+        method: 'GET',
+        credentials: 'include' // Ensure cookies are sent
+    });
+
+    if (!response.ok) {
+        throw new Error('Authentication failed');
+    }
+
+    const data = await response.json();
+    return data; // Return user data
+}
+// Fetch wallet details and display them
+async function fetchWalletDetails() {
+    try {
+        const response = await fetch(`${baseurl}/wallet`, {
+            method: 'GET',
+            credentials: 'include'
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch wallet details');
+        }
+
+        const data = await response.json();
+        transactions = data.transactions.reverse(); // Reverse transactions array to show newest first
+        
+        // Ensure balance is a number before passing to the UI update function
+        const walletBalance = parseFloat(data.balance);
+        updateWalletBalance(walletBalance); // Update the UI with wallet balance
+
+    } catch (error) {
+    }
+}
+
+// Function to update the wallet balance in the UI
+function updateWalletBalance(newBalance) {
+    const balanceElement = document.getElementById('walletBalance'); // Adjust the ID as needed
+    if (balanceElement) {
+        // Format the balance in Indian format with commas and 2 decimal places
+        const formattedBalance = newBalance.toLocaleString('en-IN', {
+            style: 'decimal',
+            maximumFractionDigits: 2,
+            minimumFractionDigits: 2
+        });
+        balanceElement.textContent = `₹${formattedBalance}`; // Display the formatted balance
+    }
+}
+
+
+// Function to display alert messages
+function displayAlert(message, type) {
+    // Create an alert element
+    const alertElement = document.createElement('div');
+    alertElement.textContent = message;
+    alertElement.classList.add('alert');
+
+    // Set alert styles based on the type
+    if (type === 'success') {
+        alertElement.classList.add('alert-success'); // You can define these styles in your CSS
+    } else if (type === 'error') {
+        alertElement.classList.add('alert-error');
+    }
+
+    // Append the alert to the body or a specific container
+    document.body.appendChild(alertElement);
+
+    // Remove the alert after a few seconds
+    setTimeout(() => {
+        alertElement.remove();
+    }, 3000); // Adjust the time as needed
+}
+// ... existing code ...
+// Event listener for the Game History button
+document.getElementById('gameHistoryButton').addEventListener('click', function() {
+    currentPage = 1; // Reset to the first page
+    fetchGameHistory(); // Fetch game history
+    $('#chartContainer').hide(); // Hide the chart container
+    $('#myHistoryContent').hide(); // Hide bet history
+    $('#historyList').show(); // Show the game history list
+});
+
+// Event listener for the Bet History button
+document.getElementById('myHistoryButton').addEventListener('click', function() {
+    currentPage = 1; // Reset to the first page
+    fetchBetHistory(); // Fetch bet history
+    $('#chartContainer').hide(); // Hide chart container
+    $('#historyList').hide(); // Hide the game history list
+    $('#myHistoryContent').show(); // Show bet history content
+});
+
+// Event listener for the Charts button
+document.getElementById('chartsButton').addEventListener('click', function() {
+    currentPage = 1; // Reset to the first page
+    fetchGameHistory('number'); // Fetch only number entries for charts
+    $('#historyList').hide(); // Hide the game history list
+    $('#myHistoryContent').hide(); // Hide bet history
+    $('#chartContainer').show(); // Show the chart container
+});
+// Fetch bet history for user
+async function fetchBetHistory() {
+    const myHistoryContent = document.getElementById('myHistoryContent');
+    const myHistoryList = document.getElementById('myHistoryList');
+
+    // Clear previous history
+    myHistoryList.innerHTML = '';
+
+    try {
+        const response = await fetch(`${baseurl}/api/user/bet-history`, {
+            method: 'GET',
+            credentials: 'include'
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status} ${response.statusText}`);
+        }
+
+        const data = await response.json();
+
+        if (data.betHistory && data.betHistory.length > 0) {
+            myHistoryContent.style.display = 'block';
+            data.betHistory.reverse(); 
+            
+            data.betHistory.forEach(bet => {
+                const payoutAmount = bet.win ? `+₹${bet.payoutAmount}` : '₹0';
+                const payoutClass = bet.win ? 'text-green-600 font-bold' : 'text-gray-500';
+
+                let betDisplay = '';
+                if (['red', 'green', 'purple'].includes(bet.betValue)) {
+                    const colorClass = `neon-buttonh ${bet.betValue}`;
+                    betDisplay = `<button class="${colorClass} text-white font-semibold rounded shadow-md">${bet.betValue.charAt(0).toUpperCase() + bet.betValue.slice(1)}</button>`;
+                } else if (bet.betValue === 'big' || bet.betValue === 'small') {
+                    const sizeClass = bet.betValue === 'big' ? 'bg-yellow-500' : 'bg-blue-500';
+                    betDisplay = `<button class="${sizeClass} text-white font-semibold rounded shadow-md">${bet.betValue.charAt(0).toUpperCase() + bet.betValue.slice(1)}</button>`;
+                } else if (typeof bet.betValue === 'number') {
+                    const numberClass = getNumberNeonClass(bet.betValue);
+                    betDisplay = `<button class="${numberClass} text-white font-semibold rounded-full shadow-md">${bet.betValue}</button>`;
+                } else {
+                    betDisplay = `<span class="text-gray-300">${bet.betValue}</span>`;
+                }
+
+                const betItem = document.createElement('div');
+                betItem.className = "bet-item transition-transform transform hover:scale-105 bg-gray-800 text-white p-4 rounded-lg shadow-lg hover:bg-gray-700 cursor-pointer flex flex-col justify-between my-2 border-b border-gray-600 hover:shadow-xl";
+                betItem.innerHTML = `
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-semibold">Bet Value:</span>
+                        <div class="flex items-center">${betDisplay}</div>
+                    </div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-semibold">Payout:</span>
+                        <span class="${payoutClass}">${payoutAmount}</span>
+                    </div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="font-semibold">Bet Amount:</span>
+                        <span class="text-gray-300">₹${bet.betAmount}</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="font-semibold">Date & Time:</span>
+                        <span class="text-gray-500">${new Date(bet.createdAt).toLocaleString()}</span>
+                    </div>
+                `;
+                
+                myHistoryList.appendChild(betItem);
+            });
+        } else {
+            myHistoryList.innerHTML = '<p class="text-gray-400">No bet history available.</p>';
+            myHistoryContent.style.display = 'block';
+        }
+
+    } catch (error) {
+        myHistoryList.innerHTML = '<p class="text-gray-400">Error fetching bet history. Please try again later.</p>';
+        myHistoryContent.style.display = 'block';
+    }
+}
+
+// Function to get the neon class for numbers
+function getNumberNeonClass(number) {
+    switch (number) {
+        case 0:
+            return 'neon-buttonh red-purple';
+        case 5:
+            return 'neon-buttonh green-purple';
+        case 1:
+        case 3:
+        case 7:
+        case 9:
+            return 'neon-buttonh red';
+        case 2:
+        case 4:
+        case 6:
+        case 8:
+            return 'neon-buttonh green';
+        default:
+            return 'text-gray-300'; 
+    }
+}
+
+// Function to fetch game history and filter by type (e.g., 'number')
+async function fetchGameHistory(filterType = '') {
+    try {
+        const response = await fetch(`${baseurl}/history`, {
+            method: 'GET',
+            credentials: 'include' // Ensure cookies are sent
+        });
+        
+        if (!response.ok) {
+            throw new Error('Failed to fetch game history');
+        }
+
+        const history = await response.json();
+        
+        window.historyData = history; // Store history data globally or in context
+
+        if (filterType === 'number') {
+            displayChart(history); // Pass the history to the chart display function
+        } else {
+            displayGameHistory(history); // Call without filterType for game history display
+        }
+    } catch (error) {
+        console.error('Error fetching game history:');
+    }
+}
+
+// Display paginated game history
+let currentPage = 1;
+const itemsPerPage = 10;
+
+function displayGameHistory(history) {
+    const historyContainer = $('#historyList');
+    historyContainer.empty();
+
+    if (history.length === 0) {
+        historyContainer.append('<p>No game history available.</p>');
+        createPaginationControls(0);
+        return;
+    }
+
+    const totalPages = Math.ceil(history.length / itemsPerPage);
+    const start = (currentPage - 1) * itemsPerPage;
+    const end = start + itemsPerPage;
+    const paginatedHistory = history.slice(start, end);
+
+    paginatedHistory.forEach(game => {
+        let colorDotClass = '';
+        let numberClass = 'neon-buttonh';
+
+        if (game.number === 0) {
+            colorDotClass = 'diagonal-neon-red-purple';
+            numberClass += ' purple';
+        } else if (game.number === 5) {
+            colorDotClass = 'diagonal-neon-green-purple';
+            numberClass += ' purple';
+        } else {
+            if (game.color === 'purple') {
+                colorDotClass = 'bg-neon-purple';
+                numberClass += ' purple';
+            } else {
+                colorDotClass = {
+                    'red': 'bg-neon-red',
+                    'green': 'bg-neon-green'
+                }[game.color] || 'bg-gray-500';
+
+                numberClass += {
+                    'red': ' red',
+                    'green': ' green'
+                }[game.color] || '';
+            }
+        }
+
+        const sizeClass = game.size === 'big' ? 'w-24 h-8' : 'w-12 h-6';
+        const buttonColorClass = game.size === 'big' ? 'bg-yellow-500' : 'bg-blue-500';
+
+        const historyItem = $(`
+            <div class="history-item transition-transform transform hover:scale-105 bg-gray-800 text-white p-4 rounded-lg shadow-lg hover:bg-gray-700 cursor-pointer">
+                <div class="flex items-center justify-between space-x-4">
+                    <span class="${numberClass}">${game.number}</span>
+                    <button class="${buttonColorClass} text-white font-semibold rounded ${sizeClass}">${game.size}</button>
+                    <span class="w-6 h-6 rounded-full ${colorDotClass}"></span>
+                </div>
+            </div>
+        `);
+
+        historyContainer.append(historyItem);
+        setTimeout(() => historyItem.addClass('visible'), 50);
+    });
+
+    createPaginationControls(totalPages);
+}
+
+// Pagination controls for history
+function createPaginationControls(totalPages) {
+    const paginationContainer = $('#paginationControls');
+    paginationContainer.empty();
+
+    if (currentPage > 1) {
+        paginationContainer.append(`
+            <button id="prevPage" class="btn bg-gray-600 text-white p-2 rounded hover:bg-gray-500">Previous</button>
+        `);
+    }
+
+    for (let i = 1; i <= totalPages; i++) {
+        paginationContainer.append(`
+            <button class="page-btn bg-gray-700 text-white p-2 rounded hover:bg-gray-500 ${i === currentPage ? 'active' : ''}">${i}</button>
+        `);
+    }
+
+    if (currentPage < totalPages) {
+        paginationContainer.append(`
+            <button id="nextPage" class="btn bg-gray-600 text-white p-2 rounded hover:bg-gray-500">Next</button>
+        `);
+    }
+
+    $('#prevPage').on('click', function() {
+        if (currentPage > 1) {
+            currentPage--;
+            displayGameHistory(window.historyData);
+        }
+    });
+
+    $('#nextPage').on('click', function() {
+        if (currentPage < totalPages) {
+            currentPage++;
+            displayGameHistory(window.historyData);
+        }
+    });
+
+    $('.page-btn').on('click', function() {
+        currentPage = parseInt($(this).text());
+        displayGameHistory(window.historyData);
+    });
+}
+
+function displayChart(history) {
+    const chartContainer = $('#chartContainer');
+    chartContainer.empty();
+
+    history.forEach(game => {
+        const chartItem = $(`
+            <div class="chart-item p-4 md:p-6 lg:p-8">
+                <div class="number-container flex justify-center items-center gap-1 md:gap-2"></div>
+            </div>
+        `);
+
+        const numberContainer = chartItem.find('.number-container');
+        for (let i = 0; i <= 9; i++) {
+            let numberClass = 'neon-buttonh';
+            let colorClass = '';
+            let additionalClasses = 'text-xs sm:text-sm md:text-base'; // Small text size
+
+            // Set color and circular highlight for the current number
+            if (i === game.number) {
+                colorClass = game.color === 'purple' ? 'purple' :
+                             game.color === 'red' ? 'red' :
+                             game.color === 'green' ? 'green' :
+                             'green-purple'; // Default for other outcomes
+                additionalClasses += ' rounded-full border-2 border-white'; // Make the highlighted number circular
+            } else {
+                colorClass = 'non-outcome-number'; // For non-outcome numbers
+            }
+
+            // Append each number with the appropriate classes
+            numberContainer.append(`
+                <span class="${numberClass} ${colorClass} ${additionalClasses} p-2 inline-block">
+                    ${i}
+                </span>
+            `);
+        }
+
+        // Append chart item to the chart container
+        chartContainer.append(chartItem);
+    });
+}
+
+// Pop-up functionality for info
+document.getElementById('infoIcon').addEventListener('click', function() {
+    document.getElementById('infoPopup').classList.remove('hidden');
+});
+
+document.getElementById('closePopup').addEventListener('click', function() {
+    document.getElementById('infoPopup').classList.add('hidden');
+});
+
+// Select all bet buttons
+// Select all bet buttons (colors, sizes, and numbers)
+const betButtons = document.querySelectorAll('.neon-button, .betnumber-button');
+
+// Initialize current bet amount, multiplier, and selected bet details
+let currentBetAmount = 0; 
+let selectedMultiplier = 1; 
+let selectedBetDetails = { betType: '', betValue: '', betAmount: 0 }; // Object to store bet details
+
+// Add event listeners to each button
+betButtons.forEach(button => {
+    button.addEventListener('click', function() {
+        // Use data attributes to set selected bet details
+        selectedBetDetails.betType = button.dataset.betType; // Get bet type from data attribute
+        selectedBetDetails.betValue = button.dataset.betValue; // Get bet value from data attribute
+        selectedBetDetails.betAmount = currentBetAmount; // Update the bet amount
+
+        // Show and slide up the amount container
+        const amountContainer = document.getElementById('Amount-container');
+        amountContainer.classList.remove('hidden');
+        amountContainer.classList.add('active');
+
+        // Clone the clicked button to show which bet is selected
+        const clonedButton = button.cloneNode(true); // Clone the button with its styles
+
+        // Clear previous content and append the cloned button
+        const selectedBetContainer = document.getElementById('selectedBet');
+        selectedBetContainer.innerHTML = ''; // Clear any previous content
+        selectedBetContainer.appendChild(clonedButton); // Append the cloned button
+    });
+});
+
+// Event listener for data-value buttons (bet amounts)
+$('.bg-gray-700[data-value]').on('click', function() {
+    const value = parseInt($(this).data('value')); // Get the value from the button's data-value attribute
+    console.log('Bet Value Clicked:', value); // Log the clicked value
+    if (!isNaN(value) && value > 0) {
+        currentBetAmount = value; // Set currentBetAmount to the clicked value
+        updateBetAmount(); // Update the UI with the new amount
+    }
+});
+
+
+// Event listener for multiplier buttons
+$('.bg-gray-700[data-multiplier]').on('click', function() {
+    selectedMultiplier = parseInt($(this).data('multiplier')); // Set selected multiplier
+    $('.bg-gray-700[data-multiplier]').removeClass('selected'); // Remove previous selection
+    $(this).addClass('selected'); // Highlight the selected multiplier
+});
+
+// Increase bet amount by the selected multiplier
+$('#increaseBtn').on('click', function() {
+    currentBetAmount += selectedMultiplier; // Increase bet amount
+    updateBetAmount(); // Update the UI
+});
+
+// Decrease bet amount by the selected multiplier
+$('#decreaseBtn').on('click', function() {
+    currentBetAmount -= selectedMultiplier; // Decrease bet amount
+    if (currentBetAmount < 0) currentBetAmount = 0; // Prevent negative amounts
+    updateBetAmount(); // Update the UI
+});
+
+// Function to update the bet amount in the UI
+function updateBetAmount() {
+    if (isNaN(currentBetAmount) || currentBetAmount <= 0) {
+        displayAlert('Please enter a valid bet amount.', 'error');
+        return; // Exit if the bet amount is invalid
+    }
+    
+    $('#bet-amount').text(currentBetAmount.toFixed(2)); // Update the displayed bet amount
+}
+// Function to fetch and update remaining time every second
+    async function fetchRemainingTime() {
+        try {
+            const response = await fetch(`${baseurl}/time-remaining`, {
+                method: 'GET',
+                credentials: 'include'
+            });
+            const data = await response.json();
+            const remainingTime = data.timeRemaining;
+            
+            // Update only if the remaining time is valid
+            if (remainingTime >= 0) {
+                document.getElementById('timer').textContent = 
+                    `00:${remainingTime < 10 ? '0' + remainingTime : remainingTime}`;
+            }
+        } catch (error) {
+            console.error("Error fetching remaining time:");
+        }
+    }
+setInterval(fetchRemainingTime, 1000);
+    
+// Enhanced Socket.IO initialization for real-time updates with reconnection
+const socket = io(`${baseurl}`, {
+    reconnectionAttempts: 5, // Retry up to 5 times before failing
+    reconnectionDelay: 1000 // Wait 1 second between reconnection attempts
+});
+// Listen for 'newOutcome' events and fetch game history in real-time
+socket.on('newOutcome', () => {
+    fetchGameHistory(); // Refresh the game history on new outcome
+});
+
+socket.on('connect_error', (error) => {
+    displayAlert('Attempting to reconnect...', 'error');
+});
+// Listen for balance updates from the server
+socket.on('balanceUpdate', (data) => {
+    // Assuming 'data.balance' contains the updated wallet balance
+    updateWalletBalance(data.balance); // Update the wallet balance displayed on the UI
+});
+
+socket.on('reconnect', (attempt) => {
+    console.log(`Reconnected after ${attempt} attempts`);
+    displayAlert('Reconnected to server!', 'success');
+});
+
+    fetchRemainingTime(); 
+// Inside your submit event listener
+document.getElementById('submitBet').addEventListener('click', async function() {
+    const checkbox = document.querySelector('input[type="checkbox"]');
+    if (!checkbox.checked) {
+        displayAlert('Please agree to the terms before submitting your bet.', 'error');
+        return; // Exit the function if checkbox is not checked
+    }
+
+    // Check for valid bet amount and bet type
+    if (currentBetAmount <= 0) {
+        displayAlert('Please enter a valid bet amount.', 'error');
+        return; // Exit if the bet amount is invalid
+    }
+    if (!selectedBetDetails.betType || !selectedBetDetails.betValue) {
+        displayAlert('Please select a bet type (color, size, or number) before submitting.', 'error');
+        return; // Exit if no bet type or value is selected
+    }
+
+    // Get remaining time before placing the bet
+    const remainingTime = await getRemainingTime(); 
+    if (remainingTime > 5) { 
+        // Define the betData object here
+        const betData = {
+            betType: selectedBetDetails.betType, // The type of bet (color, number, size)
+            betValue: selectedBetDetails.betValue, // The value for the bet
+            betAmount: currentBetAmount // The amount to bet
+        };
+ 
+        // Send the bet data to the server
+        try {
+            const response = await fetch(`${baseurl}/bet`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                credentials: 'include',
+                body: JSON.stringify(betData) // Send the adjusted betData directly
+            });
+            
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message || 'Failed to place the bet');
+            }
+
+            const resultData = await response.json();
+            console.log('Bet placed successfully:');
+
+            // Show success alert with bet details
+            const betMessage = `Bet placed successfully on ${betData.betValue} with amount ${betData.betAmount}.`;
+            displayAlert(betMessage, 'success'); // Custom message
+
+            // Reset selections
+            resetBetSelections();
+
+        } catch (error) {
+            displayAlert(error.message || 'Failed to place bet. Please try again.', 'error');
+        }
+    } else {
+        displayAlert('Failed to place bet in last 5 seconds.', 'error');
+    }
+    
+});
+// Event listener for the cancel button
+document.getElementById('cancelBet').addEventListener('click', function() {
+    resetBetSelections(); // Reset the bet selections
+    displayAlert('Bet has been canceled.', 'success'); // Display success alert
+
+    // Hide the bet amount container
+    const amountContainer = document.getElementById('Amount-container');
+    amountContainer.classList.remove('active');
+    amountContainer.classList.add('hidden');
+});
+
+// Function to get remaining time
+async function getRemainingTime() {
+    try {
+        const response = await fetch(`${baseurl}/time-remaining`, {
+            method: 'GET',
+            credentials: 'include' // Ensure cookies are sent
+        });
+        const data = await response.json();
+        return data.timeRemaining;
+    } catch (error) {
+        console.error('Error fetching remaining time:', error);
+        return 0; // Default to 0 if there's an error
+    }
+}
+
+// Function to reset bet selections
+function resetBetSelections() {
+    currentBetAmount = 0;
+    selectedMultiplier = 1;
+    selectedBetDetails = { betType: '', betValue: '', betAmount: 0 }; // Reset selected bet details
+    $('#bet-amount').text(currentBetAmount.toFixed(2)); // Reset displayed bet amount
+    $('#selectedBet').empty(); // Clear selected bet display
+
+    // Optionally, hide the amount container immediately after resetting
+    const amountContainer = document.getElementById('Amount-container');
+    amountContainer.classList.remove('active');
+    amountContainer.classList.add('hidden');
+}
+// Initialize the application
+init();
+});

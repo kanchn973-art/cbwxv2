@@ -1,1 +1,630 @@
-const _0x4a3b63=_0x4f71;(function(_0x183e31,_0x36143a){const _0x2d6a10=_0x4f71,_0x2a87fb=_0x183e31();while(!![]){try{const _0x233808=parseInt(_0x2d6a10(0x167))/0x1+parseInt(_0x2d6a10(0x19d))/0x2*(-parseInt(_0x2d6a10(0x177))/0x3)+parseInt(_0x2d6a10(0x13f))/0x4*(parseInt(_0x2d6a10(0x156))/0x5)+parseInt(_0x2d6a10(0xff))/0x6+-parseInt(_0x2d6a10(0x181))/0x7*(parseInt(_0x2d6a10(0x148))/0x8)+parseInt(_0x2d6a10(0x111))/0x9+-parseInt(_0x2d6a10(0x199))/0xa;if(_0x233808===_0x36143a)break;else _0x2a87fb['push'](_0x2a87fb['shift']());}catch(_0x475507){_0x2a87fb['push'](_0x2a87fb['shift']());}}}(_0x4845,0x84a89),(console[_0x4a3b63(0x106)]=function(){},console[_0x4a3b63(0x168)]=function(){},console[_0x4a3b63(0x121)]=function(){},console[_0x4a3b63(0x17a)]=function(){}));const baseURL=_0x4a3b63(0x16a);let username='';const xpThresholds=[0x0,0x401,0xc03,0x2409,0x6c1b,0x14451,0x3ccf3,0xb66d9,0x22348b,0x669da1,0x133d8e2];function formatInIndianStyle(_0x156a8e){const _0x234fd6=_0x4a3b63;let _0x2ce53c=_0x156a8e['toString']()[_0x234fd6(0x18d)]('.'),_0x2aec8d=_0x2ce53c[0x0],_0x131cb9='',_0x4ccc12=0x0;for(let _0x2a2a66=_0x2aec8d[_0x234fd6(0x163)]-0x1;_0x2a2a66>=0x0;_0x2a2a66--)_0x4ccc12++,_0x131cb9=_0x2aec8d[_0x2a2a66]+_0x131cb9,_0x4ccc12%0x3==0x0&&0x0!==_0x2a2a66&&(_0x131cb9=','+_0x131cb9);return _0x131cb9+(_0x2ce53c[0x1]?'.'+_0x2ce53c[0x1]:'');}function getLevelFromXP(_0x5e2777){const _0x14ed0b=_0x4a3b63;for(let _0x23f3cb=xpThresholds[_0x14ed0b(0x163)]-0x1;_0x23f3cb>=0x0;_0x23f3cb--)if(_0x5e2777>=xpThresholds[_0x23f3cb])return _0x23f3cb;return 0x0;}async function checkAuth(){const _0x40f831=_0x4a3b63;try{let _0x15e18f=await fetch(baseURL+_0x40f831(0x14f),{'method':_0x40f831(0x184),'credentials':_0x40f831(0x110)});if(!_0x15e18f['ok'])throw Error('Authentication\x20failed');let _0x3c9267=await _0x15e18f[_0x40f831(0x138)]();if(!(username=_0x3c9267[_0x40f831(0x19f)]))throw Error(_0x40f831(0xf9));setReferralLink(username);}catch(_0x3a38d4){window[_0x40f831(0x183)][_0x40f831(0x175)]=_0x40f831(0x154);}}function toggleSettings(){const _0x3d7b37=_0x4a3b63;let _0x47d924=document[_0x3d7b37(0x16e)](_0x3d7b37(0x134));_0x47d924[_0x3d7b37(0x143)][_0x3d7b37(0x126)](_0x3d7b37(0x186))?(_0x47d924[_0x3d7b37(0x143)][_0x3d7b37(0x10d)]('hidden'),_0x47d924['classList']['add'](_0x3d7b37(0x103))):(_0x47d924[_0x3d7b37(0x143)][_0x3d7b37(0x10d)](_0x3d7b37(0x103)),_0x47d924['classList'][_0x3d7b37(0x117)](_0x3d7b37(0x18c)),_0x47d924[_0x3d7b37(0x13b)](_0x3d7b37(0x10a),()=>{const _0x72d377=_0x3d7b37;_0x47d924[_0x72d377(0x143)][_0x72d377(0x117)](_0x72d377(0x186)),_0x47d924[_0x72d377(0x143)]['remove'](_0x72d377(0x18c));},{'once':!0x0}));}function openCPAleadOfferWall(){const _0x324a24=_0x4a3b63;window[_0x324a24(0x127)](_0x324a24(0x10f),_0x324a24(0xfd));}function toggleFeedbackModal(){const _0x5b1672=_0x4a3b63;let _0x2c2619=document[_0x5b1672(0x16e)](_0x5b1672(0x15a));_0x2c2619[_0x5b1672(0x143)]['toggle'](_0x5b1672(0x186));}function openTransactionModal(){const _0x505c88=_0x4a3b63;document['getElementById'](_0x505c88(0xfc))[_0x505c88(0x143)][_0x505c88(0x10d)](_0x505c88(0x186)),filterTransactions();}function closeTransactionModal(){const _0x1a175e=_0x4a3b63;document[_0x1a175e(0x16e)]('transaction-modal')[_0x1a175e(0x143)]['add'](_0x1a175e(0x186));}async function filterTransactions(){const _0x264cac=_0x4a3b63;let _0x14d040=document[_0x264cac(0x16e)](_0x264cac(0x149))[_0x264cac(0x182)],_0x3332c2=baseURL+'/wallet',_0x4faa09=new Date()['getTime'](),_0xbdc0f4=_0x264cac(0x155)+username+_0x264cac(0x139)+_0x4faa09;try{let _0x17df4=await fetch(_0x3332c2+_0xbdc0f4,{'method':_0x264cac(0x184),'credentials':_0x264cac(0x110)});if(!_0x17df4['ok'])throw Error(_0x264cac(0x151));let _0x2827a5=await _0x17df4[_0x264cac(0x138)](),_0x43f6a7=await fetch(baseURL+_0x264cac(0x165)+username,{'method':_0x264cac(0x184),'credentials':_0x264cac(0x110)});if(!_0x43f6a7['ok'])throw Error(_0x264cac(0x12f));let _0x2a998a=await _0x43f6a7[_0x264cac(0x138)]();displayTransactionsAndBets(_0x2827a5,_0x2a998a,_0x14d040);}catch(_0x37cb72){alert(_0x264cac(0x115));}}function displayTransactionsAndBets(_0x5e6306,_0x301f2b,_0x1c7f7f){const _0x5963df=_0x4a3b63;let _0x58de2a=document[_0x5963df(0x16e)]('transaction-list');if(_0x58de2a[_0x5963df(0x18a)]='',_0x5e6306['transactions']){let _0x101bc7=_0x5e6306[_0x5963df(0x15e)][_0x5963df(0x193)](_0x2f53d5=>_0x5963df(0x17f)===_0x1c7f7f&&_0x5963df(0x17e)===_0x2f53d5[_0x5963df(0x15c)]||'deposit'===_0x1c7f7f&&'Deposit'===_0x2f53d5[_0x5963df(0x15c)]||'withdraw'===_0x1c7f7f&&'Withdraw'===_0x2f53d5[_0x5963df(0x15c)]||''===_0x1c7f7f||_0x5963df(0x153)===_0x1c7f7f);_0x101bc7[_0x5963df(0x194)](_0x59d4f8=>{const _0x69a41c=_0x5963df;let _0x465080=document[_0x69a41c(0x107)]('li');_0x465080[_0x69a41c(0x143)][_0x69a41c(0x117)](_0x69a41c(0x192));let _0x440b22='',_0x477625='',_0x5550cb=formatInIndianStyle(_0x59d4f8['amount']);switch(_0x59d4f8[_0x69a41c(0x15c)][_0x69a41c(0x11a)]()){case _0x69a41c(0x1a0):_0x440b22='-₹'+_0x5550cb,_0x477625=_0x69a41c(0x11f);break;case'deposit':case'reward':_0x440b22='+₹'+_0x5550cb,_0x477625=_0x69a41c(0x122);break;default:_0x440b22='₹'+_0x5550cb,_0x477625=_0x69a41c(0x13d);}_0x465080[_0x69a41c(0x18a)]='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22transaction-item-header\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>'+(_0x59d4f8[_0x69a41c(0x15c)]['charAt'](0x0)[_0x69a41c(0x124)]()+_0x59d4f8['type'][_0x69a41c(0x137)](0x1))+_0x69a41c(0x130)+new Date(_0x59d4f8[_0x69a41c(0x144)])['toLocaleString']()+_0x69a41c(0x114)+_0x477625+'\x22>'+_0x440b22+_0x69a41c(0x101),_0x58de2a[_0x69a41c(0x161)](_0x465080);});}_0x301f2b[_0x5963df(0x164)]&&(_0x5963df(0x1a1)===_0x1c7f7f||''===_0x1c7f7f||'all'===_0x1c7f7f)&&_0x301f2b[_0x5963df(0x164)]['forEach'](_0x3a68cc=>{const _0x587c67=_0x5963df;let _0x40cc2d=document['createElement']('li');_0x40cc2d[_0x587c67(0x143)][_0x587c67(0x117)](_0x587c67(0x192));let _0x24a5b7=_0x3a68cc[_0x587c67(0x10b)]>0x0?'+₹'+formatInIndianStyle(_0x3a68cc[_0x587c67(0x10b)]):'₹0',_0x40fdb6=_0x3a68cc[_0x587c67(0x10b)]>0x0?_0x587c67(0x122):_0x587c67(0x13d);_0x40cc2d[_0x587c67(0x18a)]=_0x587c67(0x12a)+_0x3a68cc[_0x587c67(0x12d)]+_0x587c67(0x130)+new Date(_0x3a68cc[_0x587c67(0x147)])[_0x587c67(0x195)]()+_0x587c67(0x158)+formatInIndianStyle(_0x3a68cc[_0x587c67(0x16b)])+_0x587c67(0x100)+_0x40fdb6+_0x587c67(0x104)+_0x24a5b7+_0x587c67(0x101),_0x58de2a[_0x587c67(0x161)](_0x40cc2d);}),''===_0x58de2a[_0x5963df(0x18a)]&&(_0x58de2a[_0x5963df(0x18a)]=_0x5963df(0x18e));}function logout(){const _0x2ebd36=_0x4a3b63;localStorage[_0x2ebd36(0x15f)](),sessionStorage[_0x2ebd36(0x15f)](),fetch(baseURL+'/logout',{'method':_0x2ebd36(0x17c),'headers':{'Content-Type':'application/json'}})[_0x2ebd36(0x179)](_0x261224=>_0x261224[_0x2ebd36(0x138)]())[_0x2ebd36(0x179)](_0x377cbd=>{const _0x29bea2=_0x2ebd36;_0x29bea2(0x129)===_0x377cbd[_0x29bea2(0x105)]?window[_0x29bea2(0x183)][_0x29bea2(0x175)]=_0x29bea2(0x16f):alert(_0x29bea2(0x17b));})['catch'](_0x4ab95b=>{const _0x25bd96=_0x2ebd36;console[_0x25bd96(0x121)](_0x25bd96(0x187),_0x4ab95b),alert(_0x25bd96(0x17b));});}function redirectToWallet(){const _0x23c301=_0x4a3b63;window[_0x23c301(0x183)][_0x23c301(0x175)]='/frontend/wallet.html';}function toggleResetPasswordModal(){const _0x232efa=_0x4a3b63;let _0x5740eb=document['getElementById'](_0x232efa(0x116));_0x5740eb[_0x232efa(0x143)][_0x232efa(0x19c)](_0x232efa(0x186));}function closeResetPasswordForm(){const _0x5183ec=_0x4a3b63;let _0x46d4f1=document[_0x5183ec(0x16e)](_0x5183ec(0x1a3));_0x46d4f1['classList']['remove']('slide-in'),_0x46d4f1['classList'][_0x5183ec(0x117)]('slide-out'),_0x46d4f1['addEventListener'](_0x5183ec(0x10a),()=>{const _0x143681=_0x5183ec;_0x46d4f1[_0x143681(0x157)][_0x143681(0x14e)]=_0x143681(0x159),_0x46d4f1['classList']['remove'](_0x143681(0x18c));},{'once':!0x0});}async function resetPassword(){const _0x4b5d68=_0x4a3b63;let _0x2eeca3=document[_0x4b5d68(0x16e)](_0x4b5d68(0x197))[_0x4b5d68(0x182)],_0x42ca45=document[_0x4b5d68(0x16e)](_0x4b5d68(0x170))[_0x4b5d68(0x182)],_0x13d8a2=document[_0x4b5d68(0x16e)](_0x4b5d68(0x189))[_0x4b5d68(0x182)];if(_0x42ca45!==_0x13d8a2){alert(_0x4b5d68(0x166));return;}try{let _0x3fec02=await fetch(baseURL+_0x4b5d68(0x113),{'method':_0x4b5d68(0x17c),'headers':{'Content-Type':'application/json'},'credentials':_0x4b5d68(0x110),'body':JSON['stringify']({'currentPassword':_0x2eeca3,'newPassword':_0x42ca45})});if(_0x3fec02['ok'])alert(_0x4b5d68(0x12c)),closeResetPasswordForm();else{let _0x11cc09=await _0x3fec02[_0x4b5d68(0x138)]();alert(_0x11cc09[_0x4b5d68(0x105)]||_0x4b5d68(0x185));}}catch(_0x2d0c00){console[_0x4b5d68(0x121)](_0x4b5d68(0x171),_0x2d0c00),alert('Error\x20resetting\x20password.\x20Please\x20try\x20again\x20later.');}}function setLanguage(_0xc4fb69){const _0x29f3a9=_0x4a3b63;localStorage[_0x29f3a9(0x142)]('language',_0xc4fb69),alert(_0x29f3a9(0xfe)+_0xc4fb69);}function _0x4f71(_0x2e1d2b,_0x19016c){const _0x484553=_0x4845();return _0x4f71=function(_0x4f71b0,_0x24a9ef){_0x4f71b0=_0x4f71b0-0xf9;let _0x3859ed=_0x484553[_0x4f71b0];return _0x3859ed;},_0x4f71(_0x2e1d2b,_0x19016c);}async function submitFeedback(_0x4e87f1,_0x36a5b9,_0x2c2b4f){const _0x55c756=_0x4a3b63;try{let _0x3104c9=await fetch(baseURL+_0x55c756(0x173),{'method':_0x55c756(0x17c),'headers':{'Content-Type':_0x55c756(0x19e)},'credentials':_0x55c756(0x110),'body':JSON['stringify']({'name':_0x4e87f1,'email':_0x36a5b9,'message':_0x2c2b4f})});_0x3104c9['ok']?alert(_0x55c756(0x13c)):alert(_0x55c756(0x15b));}catch(_0x2ab606){}}function toggleNotification(){const _0x18f01c=_0x4a3b63;let _0x1308cd=document[_0x18f01c(0x16e)](_0x18f01c(0x123));_0x1308cd[_0x18f01c(0x143)][_0x18f01c(0x19c)](_0x18f01c(0x180));}function _0x4845(){const _0x35c835=['setItem','classList','date','Reward\x20of\x20₹','src','createdAt','16AZhowl','transaction-type','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20mt-3\x20bg-gradient-to-r\x20from-green-400\x20via-green-500\x20to-green-600\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20text-white\x20px-4\x20py-1.5\x20rounded-lg\x20shadow-md\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20font-semibold\x20tracking-wide\x20uppercase\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20transition-all\x20duration-300\x20transform\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20hover:scale-105\x20hover:shadow-md\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20focus:outline-none\x20focus:ring-2\x20focus:ring-green-300\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','stringify','</span></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22mt-2\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','reward-container','display','/verify-token','button','Failed\x20to\x20fetch\x20wallet\x20transactions','profilePicture','all','auth.html','?username=','5870sqTEIY','style','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22transaction-item-details\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22transaction-amount\x22>Bet\x20Amount:\x20₹','none','feedback-modal','Error\x20submitting\x20feedback','type','wallet-balance','transactions','clear','pop','appendChild','user-xp','length','betHistory','/api/user/bet-history?username=','New\x20password\x20and\x20confirm\x20password\x20do\x20not\x20match.','881685uUoOlK','warn','referral-link','https://backcifbwerwix.onrender.com','betAmount','feedback-form','status','getElementById','/frontend/auth','new-password','Error\x20resetting\x20password:','Error\x20fetching\x20notifications:','/feedback','select','href','.profile-pic\x20img','6lPOEJe','</span></p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-sm\x20text-gray-200\x22>Amount:\x20₹<span\x20class=\x22font-semibold\x22>','then','info','Logout\x20failed.\x20Please\x20try\x20again.','POST','rewardAmount','Reward','reward','show','2721719wVeRFY','value','location','GET','Error\x20resetting\x20password','hidden','Logout\x20error:','innerText','confirm-password','innerHTML','profile-image-modal','slide-out','split','<li>No\x20transactions\x20or\x20bets\x20found.</li>','<p>','notification-list','/xp-status/','transaction-item','filter','forEach','toLocaleString','div','current-password','Error\x20updating\x20profile\x20picture:','2284500xaHxfj','reset','Feedback\x20submitted:','toggle','878334XlEGzR','application/json','username','withdraw','bets','/claim-reward','resetPasswordForm','feedback-name','Username\x20is\x20not\x20available.','preventDefault','Failed\x20to\x20fetch\x20notifications:','transaction-modal','_blank','Language\x20set\x20to\x20','4640328wbbkph','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22transaction-amount\x20','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','DOMContentLoaded','slide-in','\x22>Payout:\x20','message','log','createElement','className','\x20claimed\x20successfully!','animationend','payoutAmount','claimed','remove','Error\x20updating\x20profile\x20picture.\x20Please\x20try\x20again\x20later.','https://www.lnksforyou.com/list/48721','include','4830660CnoHDO','/notifications','/reset-password','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22transaction-item-details\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22transaction-amount\x20','Error\x20fetching\x20transaction\x20and\x20bet\x20history','reset-password-modal','add','Server\x20error:\x20','onclick','toLowerCase','toFixed','general','Claim\x20Now','writeText','text-red-500','balance','error','text-green-500','notification-box','toUpperCase','You\x20are\x20not\x20authenticated.\x20Please\x20log\x20in\x20again.','contains','open','feedback-message','Logged\x20out\x20successfully','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22transaction-item-header\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>Bet\x20Type:\x20','user-level','Password\x20reset\x20successfully','betType','Failed\x20to\x20copy\x20referral\x20link.','Failed\x20to\x20fetch\x20bet\x20history','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22transaction-date\x22>','Error\x20fetching\x20profile.\x20Please\x20try\x20again\x20later.','feedback-email','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','settings-container','assets/1.jpg','catch','slice','json','&cachebuster=','querySelector','addEventListener','Thank\x20you\x20for\x20your\x20feedback!','text-gray-400','Error\x20claiming\x20reward','804ZJiRML','</p>','width'];_0x4845=function(){return _0x35c835;};return _0x4845();}function addNotification(_0x12c006,_0x377d61=_0x4a3b63(0x11c)){const _0x11f6e2=_0x4a3b63;let _0x2c4937=document[_0x11f6e2(0x16e)](_0x11f6e2(0x190)),_0x55b2dd=document['createElement']('li');_0x55b2dd['classList'][_0x11f6e2(0x117)]('notification-item',_0x377d61),_0x55b2dd[_0x11f6e2(0x18a)]=_0x11f6e2(0x18f)+_0x12c006+_0x11f6e2(0x140),_0x2c4937['appendChild'](_0x55b2dd),setTimeout(()=>{const _0x94a0da=_0x11f6e2;_0x55b2dd[_0x94a0da(0x157)]['opacity']='1',_0x55b2dd[_0x94a0da(0x157)]['transform']='translateY(0)';},0x64);}async function fetchNotifications(){const _0x2c217e=_0x4a3b63;try{let _0x2f3f36=await fetch(baseURL+_0x2c217e(0x112),{'method':_0x2c217e(0x184),'headers':{'Content-Type':_0x2c217e(0x19e)},'credentials':'include'}),_0x5eb771=await _0x2f3f36['json']();_0x2f3f36['ok']?_0x5eb771[_0x2c217e(0x194)](_0x168699=>{const _0x44bb0d=_0x2c217e;addNotification(_0x168699['message'],_0x168699[_0x44bb0d(0x15c)]);}):console['error'](_0x2c217e(0xfb));}catch(_0x3fd452){console['error'](_0x2c217e(0x172));}}function startNotificationPolling(){setInterval(()=>{fetchNotifications();},0x2710);}function clearNotifications(){const _0x2339df=_0x4a3b63;let _0x36aab2=document[_0x2339df(0x16e)](_0x2339df(0x190));_0x36aab2[_0x2339df(0x18a)]='';}function openProfileImageSelection(){const _0x163081=_0x4a3b63;document[_0x163081(0x16e)]('profile-image-modal')['classList']['remove'](_0x163081(0x186));}function closeProfileImageSelection(){const _0x247bfb=_0x4a3b63;document['getElementById'](_0x247bfb(0x18b))[_0x247bfb(0x143)][_0x247bfb(0x117)]('hidden');}function selectProfileImage(_0x3ab6af){const _0x10cb5b=_0x4a3b63;document[_0x10cb5b(0x13a)](_0x10cb5b(0x176))[_0x10cb5b(0x146)]=_0x3ab6af,saveProfileImageToDB(_0x3ab6af),closeProfileImageSelection();}async function saveProfileImageToDB(_0x51779c){const _0x2382ff=_0x4a3b63;try{await fetch(baseURL+'/profile/image',{'method':'POST','headers':{'Content-Type':_0x2382ff(0x19e)},'credentials':_0x2382ff(0x110),'body':JSON[_0x2382ff(0x14b)]({'profilePicture':_0x51779c[_0x2382ff(0x18d)]('/')[_0x2382ff(0x160)]()})});}catch(_0x56d682){console[_0x2382ff(0x121)](_0x2382ff(0x198),_0x56d682),alert(_0x2382ff(0x10e));}}async function fetchProfile(){const _0x4f0680=_0x4a3b63;if(!username)return alert('You\x20are\x20not\x20authenticated.\x20Please\x20log\x20in\x20again.');try{let _0x55ef8a=await fetch(baseURL+'/profile/'+username);if(!_0x55ef8a['ok'])throw Error('Server\x20error:\x20'+_0x55ef8a[_0x4f0680(0x16d)]);let _0x5dc409=await _0x55ef8a[_0x4f0680(0x138)](),_0x185265=getLevelFromXP(_0x5dc409['xp']),_0x7223a1=xpThresholds[_0x185265+0x1]||xpThresholds[xpThresholds[_0x4f0680(0x163)]-0x1],_0xbe6091=xpThresholds[_0x185265],_0x43ac45=(_0x5dc409['xp']-_0xbe6091)/(_0x7223a1-_0xbe6091)*0x64;document[_0x4f0680(0x16e)]('username-display')['innerText']=''+_0x5dc409[_0x4f0680(0x19f)],document[_0x4f0680(0x16e)](_0x4f0680(0x15d))[_0x4f0680(0x188)]='₹'+formatInIndianStyle(_0x5dc409[_0x4f0680(0x120)][_0x4f0680(0x11b)](0x2)),document[_0x4f0680(0x16e)](_0x4f0680(0x162))['innerText']=''+_0x5dc409['xp'],document[_0x4f0680(0x16e)](_0x4f0680(0x12b))[_0x4f0680(0x188)]=''+_0x185265,document[_0x4f0680(0x16e)]('xp-progress-bar')[_0x4f0680(0x157)][_0x4f0680(0x141)]=_0x43ac45+'%';let _0x517070=_0x4f0680(0x135);_0x5dc409[_0x4f0680(0x152)]&&'1'!==_0x5dc409[_0x4f0680(0x152)]&&(_0x517070='assets/'+_0x5dc409[_0x4f0680(0x152)]+'.jpg'),document[_0x4f0680(0x13a)](_0x4f0680(0x176))[_0x4f0680(0x146)]=_0x517070,renderRewards(_0x5dc409['rewards']);}catch(_0x373b0e){alert(_0x4f0680(0x131));}}async function fetchXpStatus(){const _0x1a2d58=_0x4a3b63;if(!username)return alert(_0x1a2d58(0x125));try{let _0x5dc367=await fetch(baseURL+_0x1a2d58(0x191)+username);if(!_0x5dc367['ok'])throw Error(_0x1a2d58(0x118)+_0x5dc367['status']);}catch(_0x5e0732){}}function renderRewards(_0x2b9a88){const _0x540a60=_0x4a3b63;let _0x46625e=document[_0x540a60(0x16e)](_0x540a60(0x14d));_0x46625e[_0x540a60(0x18a)]='',_0x2b9a88['forEach'](_0x446025=>{const _0x1aad32=_0x540a60;let _0x557f10=document[_0x1aad32(0x107)](_0x1aad32(0x196));if(_0x557f10[_0x1aad32(0x108)]='reward-card\x20bg-gradient-to-br\x20from-purple-600\x20to-indigo-600\x20text-white\x20p-4\x20rounded-lg\x20shadow-lg\x20flex\x20flex-col\x20items-center\x20max-w-xs\x20mx-auto\x20mb-4',_0x557f10['innerHTML']='\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h4\x20class=\x22text-lg\x20font-bold\x20mb-2\x22>Reward</h4>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22text-sm\x20text-gray-200\x22>XP\x20Required:\x20<span\x20class=\x22font-semibold\x20text-yellow-300\x22>'+_0x446025['xpRequired']+_0x1aad32(0x178)+formatInIndianStyle(_0x446025[_0x1aad32(0x17d)])+_0x1aad32(0x14c)+(_0x446025[_0x1aad32(0x10c)]?'<span\x20class=\x22text-green-300\x20font-semibold\x22>Claimed</span>':'')+_0x1aad32(0x133),!_0x446025[_0x1aad32(0x10c)]){let _0x41eb53=document[_0x1aad32(0x107)](_0x1aad32(0x150));_0x41eb53[_0x1aad32(0x188)]=_0x1aad32(0x11d),_0x41eb53['className']=_0x1aad32(0x14a),_0x41eb53[_0x1aad32(0x119)]=()=>claimReward(_0x446025['xpRequired']),_0x557f10[_0x1aad32(0x161)](_0x41eb53);}_0x46625e['appendChild'](_0x557f10);});}async function claimReward(_0x6d66ae){const _0x22184c=_0x4a3b63;if(!username)return alert('You\x20are\x20not\x20authenticated.\x20Please\x20log\x20in\x20again.');try{let _0x52c326=await fetch(baseURL+_0x22184c(0x1a2),{'method':'POST','headers':{'Content-Type':_0x22184c(0x19e)},'body':JSON[_0x22184c(0x14b)]({'username':username,'xpRequired':_0x6d66ae})});if(!_0x52c326['ok'])throw Error('Server\x20error:\x20'+_0x52c326[_0x22184c(0x16d)]);let _0x3e4658=await _0x52c326[_0x22184c(0x138)]();_0x3e4658['rewardAmount']?(alert(_0x22184c(0x145)+_0x3e4658[_0x22184c(0x17d)]+_0x22184c(0x109)),fetchProfile()):alert(_0x3e4658['message']||_0x22184c(0x13e));}catch(_0x5aaaab){console[_0x22184c(0x106)](_0x6d66ae),alert('Error\x20claiming\x20reward.\x20Please\x20try\x20again\x20later.');}}async function initializePage(){await checkAuth(),username&&(fetchProfile(),fetchXpStatus());}function setReferralLink(_0x2298b3){const _0x51c15c=_0x4a3b63;if(!_0x2298b3)return;let _0x471012='https://cberwinx.vercel.app/frontend/auth.html?referral='+encodeURIComponent(_0x2298b3),_0x37f016=document[_0x51c15c(0x16e)](_0x51c15c(0x169));_0x37f016[_0x51c15c(0x182)]=_0x471012,_0x37f016[_0x51c15c(0x175)]=_0x471012;}function copyReferralLink(){const _0x1bf5b5=_0x4a3b63;let _0x5928e3=document[_0x1bf5b5(0x16e)]('referral-link');_0x5928e3[_0x1bf5b5(0x174)](),_0x5928e3['setSelectionRange'](0x0,0x1869f),_0x5928e3[_0x1bf5b5(0x175)],navigator['clipboard'][_0x1bf5b5(0x11e)](_0x5928e3[_0x1bf5b5(0x182)])[_0x1bf5b5(0x179)](()=>{})[_0x1bf5b5(0x136)](_0x56d85f=>{const _0x5c10ce=_0x1bf5b5;alert(_0x5c10ce(0x12e));});}document[_0x4a3b63(0x16e)](_0x4a3b63(0x16c))[_0x4a3b63(0x13b)]('submit',function(_0xdeb080){const _0x2a7c2b=_0x4a3b63;_0xdeb080[_0x2a7c2b(0xfa)]();let _0x5d25c3=document[_0x2a7c2b(0x16e)](_0x2a7c2b(0x1a4))['value'],_0x28c485=document['getElementById']('feedback-email')[_0x2a7c2b(0x182)],_0x21ccb6=document[_0x2a7c2b(0x16e)](_0x2a7c2b(0x128))[_0x2a7c2b(0x182)];console[_0x2a7c2b(0x106)](_0x2a7c2b(0x19b),{'name':_0x5d25c3,'email':_0x28c485,'message':_0x21ccb6}),alert(_0x2a7c2b(0x13c)),toggleFeedbackModal(),this[_0x2a7c2b(0x19a)]();}),document[_0x4a3b63(0x16e)]('feedback-form')[_0x4a3b63(0x13b)]('submit',function(_0x455193){const _0x898c93=_0x4a3b63;_0x455193[_0x898c93(0xfa)]();let _0x24126c=document[_0x898c93(0x16e)](_0x898c93(0x1a4))[_0x898c93(0x182)],_0xdee8d9=document[_0x898c93(0x16e)](_0x898c93(0x132))[_0x898c93(0x182)],_0x18c38b=document[_0x898c93(0x16e)](_0x898c93(0x128))[_0x898c93(0x182)];submitFeedback(_0x24126c,_0xdee8d9,_0x18c38b),toggleFeedbackModal(),this[_0x898c93(0x19a)]();}),fetchNotifications(),startNotificationPolling(),document[_0x4a3b63(0x13b)](_0x4a3b63(0x102),initializePage);
+// Suppress all console output (log, warn, error, info, etc.)
+console.log = function() {};
+console.warn = function() {};
+console.error = function() {};
+console.info = function() {};
+
+const baseURL = 'https://cwxv2be.onrender.com'; // Your server URL
+let username = ''; // Store the username after successful authentication
+
+// Define XP thresholds for each level starting from Level 0 threshold
+const xpThresholds = [
+    0,         // Level 0 threshold
+    1025,      // Level 1 threshold
+    3075,      // Level 2 threshold
+    9225,      // Level 3 threshold
+    27675,     // Level 4 threshold
+    83025,     // Level 5 threshold
+    249075,    // Level 6 threshold
+    747225,    // Level 7 threshold
+    2241675,   // Level 8 threshold
+    6725025,   // Level 9 threshold
+    20175074   // Level 10 threshold (Level 11 if users go beyond level 10)
+];
+// Function to format numbers in the Indian numbering system with commas
+function formatInIndianStyle(number) {
+    // Convert the number to a string
+    let numStr = number.toString();
+    
+    // Check if the number has decimal places
+    let parts = numStr.split('.');
+
+    // Format the integer part
+    let integerPart = parts[0];
+    let formattedInteger = '';
+    let count = 0;
+
+    // Add commas for the integer part (in Indian format)
+    for (let i = integerPart.length - 1; i >= 0; i--) {
+        count++;
+        formattedInteger = integerPart[i] + formattedInteger;
+        if (count % 3 === 0 && i !== 0) {
+            formattedInteger = ',' + formattedInteger;
+        }
+    }
+
+    // If there's a decimal part, format it as well
+    let decimalPart = parts[1] ? '.' + parts[1] : '';
+
+    // Combine the formatted integer and decimal parts
+    return formattedInteger + decimalPart;
+}
+
+// Function to get the level based on XP
+function getLevelFromXP(xp) {
+    for (let i = xpThresholds.length - 1; i >= 0; i--) {
+        if (xp >= xpThresholds[i]) {
+            return i; // Level is the index if XP is within or above this threshold
+        }
+    }
+    return 0; // Default to level 0 if XP doesn't meet any thresholds
+}
+// Function to check if the user is authenticated
+async function checkAuth() {
+    try {
+        const response = await fetch(`${baseURL}/verify-token`, {
+            method: 'GET',
+            credentials: 'include'
+        });
+
+        if (!response.ok) throw new Error('Authentication failed');
+
+        const data = await response.json();
+        username = data.username;
+        if (!username) throw new Error('Username is not available.');
+        setReferralLink(username); // Pass the username to setReferralLink
+    } catch (error) {
+        window.location.href = 'auth.html';
+    }
+}
+function toggleSettings() {
+    const settingsContainer = document.getElementById('settings-container');
+
+    // Toggle slide-in class for showing or hiding with animation
+    if (settingsContainer.classList.contains('hidden')) {
+        settingsContainer.classList.remove('hidden');
+        settingsContainer.classList.add('slide-in'); // Trigger the slide-in effect
+    } else {
+        settingsContainer.classList.remove('slide-in');
+        settingsContainer.classList.add('slide-out'); // Trigger the slide-out effect
+
+        // Add hidden class after animation completes
+        settingsContainer.addEventListener('animationend', () => {
+            settingsContainer.classList.add('hidden');
+            settingsContainer.classList.remove('slide-out');
+        }, { once: true });
+    }
+}
+function openCPAleadOfferWall() {
+    // Replace with your actual CPAlead Offer Wall link
+    const offerWallLink = "https://www.lnksforyou.com/list/48721";
+    window.open(offerWallLink, "_blank");
+}
+// Toggle feedback modal visibility
+function toggleFeedbackModal() {
+    const feedbackModal = document.getElementById('feedback-modal');
+    feedbackModal.classList.toggle('hidden');
+}
+
+// Submit feedback form
+document.getElementById('feedback-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Capture form data
+    const name = document.getElementById('feedback-name').value;
+    const email = document.getElementById('feedback-email').value;
+    const message = document.getElementById('feedback-message').value;
+
+    // Here, send data to your server or process feedback
+    console.log("Feedback submitted:", { name, email, message });
+    alert('Thank you for your feedback!');
+
+    // Close modal and reset form
+    toggleFeedbackModal();
+    this.reset();
+});
+
+// Function to open the transaction modal
+function openTransactionModal() {
+    document.getElementById('transaction-modal').classList.remove('hidden');
+    filterTransactions();  // Load transactions by default
+}
+
+// Function to close the transaction modal
+function closeTransactionModal() {
+    document.getElementById('transaction-modal').classList.add('hidden');
+}
+// Function to filter transactions based on selected type (bets, reward, deposit, withdraw, etc.)
+async function filterTransactions() {
+    const type = document.getElementById('transaction-type').value;
+    const url = `${baseURL}/wallet`;
+    const cachebuster = new Date().getTime();
+    const queryParams = `?username=${username}&cachebuster=${cachebuster}`;
+
+    try {
+        const walletResponse = await fetch(url + queryParams, { method: 'GET', credentials: 'include' });
+        if (!walletResponse.ok) throw new Error('Failed to fetch wallet transactions');
+
+        const walletData = await walletResponse.json();
+
+        const betHistoryResponse = await fetch(`${baseURL}/api/user/bet-history?username=${username}`, {
+            method: 'GET',
+            credentials: 'include'
+        });
+        if (!betHistoryResponse.ok) throw new Error('Failed to fetch bet history');
+
+        const betHistoryData = await betHistoryResponse.json();
+
+        displayTransactionsAndBets(walletData, betHistoryData, type);
+    } catch (error) {
+        alert('Error fetching transaction and bet history');
+    }
+}
+// Display wallet and bet transactions
+function displayTransactionsAndBets(walletData, betHistoryData, type) {
+    const transactionList = document.getElementById('transaction-list');
+    transactionList.innerHTML = '';
+
+    // Display wallet transactions
+    if (walletData.transactions) {
+        const filteredWalletTransactions = walletData.transactions.filter(transaction => {
+            if (type === 'reward' && transaction.type === 'Reward') return true;
+            if (type === 'deposit' && transaction.type === 'Deposit') return true;
+            if (type === 'withdraw' && transaction.type === 'Withdraw') return true;
+            if (type === '' || type === 'all') return true;
+            return false;
+        });
+
+        filteredWalletTransactions.forEach(transaction => {
+            const transactionItem = document.createElement('li');
+            transactionItem.classList.add('transaction-item');
+
+            // Set color and prefix based on transaction type
+            let amountDisplay = '';
+            let amountClass = '';
+
+            const formattedAmount = formatInIndianStyle(transaction.amount);
+
+            switch (transaction.type.toLowerCase()) {
+                case 'withdraw':
+                    amountDisplay = `-₹${formattedAmount}`;
+                    amountClass = 'text-red-500'; // Red color for negative amounts
+                    break;
+                case 'deposit':
+                    amountDisplay = `+₹${formattedAmount}`;
+                    amountClass = 'text-green-500'; // Green color for positive amounts
+                    break;
+                case 'reward':
+                    amountDisplay = `+₹${formattedAmount}`;
+                    amountClass = 'text-green-500'; // Green color for rewards
+                    break;
+                default:
+                    amountDisplay = `₹${formattedAmount}`;
+                    amountClass = 'text-gray-400'; // Default color for other types
+            }
+
+            transactionItem.innerHTML = `
+                <div class="transaction-item-header">
+                    <span>${transaction.type.charAt(0).toUpperCase() + transaction.type.slice(1)}</span>
+                    <span class="transaction-date">${new Date(transaction.date).toLocaleString()}</span>
+                </div>
+                <div class="transaction-item-details">
+                    <div class="transaction-amount ${amountClass}">${amountDisplay}</div>
+                </div>
+            `;
+            transactionList.appendChild(transactionItem);
+        });
+    }
+
+    // Display bet history if type is 'bets' or 'all' is selected
+    if (betHistoryData.betHistory && (type === 'bets' || type === '' || type === 'all')) {
+        betHistoryData.betHistory.forEach(bet => {
+            const betItem = document.createElement('li');
+            betItem.classList.add('transaction-item');
+
+            // Format payout amount
+            const payoutDisplay = bet.payoutAmount > 0 ? `+₹${formatInIndianStyle(bet.payoutAmount)}` : '₹0';
+            const payoutClass = bet.payoutAmount > 0 ? 'text-green-500' : 'text-gray-400'; // Green for positive payouts, gray for zero payouts
+
+            betItem.innerHTML = `
+                <div class="transaction-item-header">
+                    <span>Bet Type: ${bet.betType}</span>
+                    <span class="transaction-date">${new Date(bet.createdAt).toLocaleString()}</span>
+                </div>
+                <div class="transaction-item-details">
+                    <div class="transaction-amount">Bet Amount: ₹${formatInIndianStyle(bet.betAmount)}</div>
+                    <div class="transaction-amount ${payoutClass}">Payout: ${payoutDisplay}</div>
+                </div>
+            `;
+            transactionList.appendChild(betItem);
+        });
+    }
+
+    // If no transactions or bets are found
+    if (transactionList.innerHTML === '') {
+        transactionList.innerHTML = '<li>No transactions or bets found.</li>';
+    }
+}
+function logout() {
+    // Optionally, clear any client-side storage (e.g., localStorage, sessionStorage)
+    localStorage.clear();
+    sessionStorage.clear();
+
+    // Send a request to the server to log out
+    fetch(`${baseURL}/logout`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.message === 'Logged out successfully') {
+            // Redirect to the login page or home page after successful logout
+            window.location.href = '/frontend/auth';  // Redirect to the login page or home page
+        } else {
+            alert('Logout failed. Please try again.');
+        }
+    })
+    .catch(error => {
+        console.error('Logout error:', error);
+        alert('Logout failed. Please try again.');
+    });
+}
+function redirectToWallet() {
+    window.location.href = '/frontend/wallet.html'
+};
+function toggleResetPasswordModal() {
+    const modal = document.getElementById('reset-password-modal');
+    modal.classList.toggle('hidden');
+}
+
+// Function to close the reset password form with animation
+function closeResetPasswordForm() {
+    const form = document.getElementById('resetPasswordForm');
+
+    // Trigger slide-out animation
+    form.classList.remove('slide-in');
+    form.classList.add('slide-out');
+
+    // Hide the form after the animation completes
+    form.addEventListener('animationend', () => {
+        form.style.display = 'none';
+        form.classList.remove('slide-out');
+    }, { once: true });
+}
+
+// Example function to trigger password reset process
+async function resetPassword() {
+    const currentPassword = document.getElementById('current-password').value;
+    const newPassword = document.getElementById('new-password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+
+    // Validate that new password and confirm password match
+    if (newPassword !== confirmPassword) {
+        alert('New password and confirm password do not match.');
+        return;
+    }
+
+    try {
+        const response = await fetch(`${baseURL}/reset-password`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify({ currentPassword, newPassword })
+        });
+
+        if (response.ok) {
+            alert('Password reset successfully');
+            closeResetPasswordForm();  // Close the form after successful reset
+        } else {
+            const data = await response.json();
+            alert(data.message || 'Error resetting password');
+        }
+    } catch (error) {
+        console.error('Error resetting password:', error);
+        alert('Error resetting password. Please try again later.');
+    }
+}
+
+// Function to toggle language (save language selection in local storage)
+function setLanguage(language) {
+    localStorage.setItem('language', language);
+    alert(`Language set to ${language}`);
+    // Reload or update UI based on the selected language
+}
+// Feedback form submission
+document.getElementById('feedback-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const name = document.getElementById('feedback-name').value;
+    const email = document.getElementById('feedback-email').value;
+    const message = document.getElementById('feedback-message').value;
+    submitFeedback(name, email, message);
+    toggleFeedbackModal(); // Close the modal
+    this.reset(); // Reset the form
+});
+
+// Function to submit feedback
+async function submitFeedback(name, email, message) {
+    try {
+        const response = await fetch(`${baseURL}/feedback`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify({ name, email, message })
+        });
+
+        if (response.ok) {
+            alert('Thank you for your feedback!');
+        } else {
+            alert('Error submitting feedback');
+        }
+    } catch (error) {
+    }
+}
+
+// Function to toggle the notification box visibility
+function toggleNotification() {
+    const notificationBox = document.getElementById('notification-box');
+    notificationBox.classList.toggle('show'); // Toggle show class for the box
+}
+
+// Function to add a notification to the list
+function addNotification(message, type = 'general') {
+    const notificationList = document.getElementById('notification-list');
+    
+    // Create a new notification item
+    const notificationItem = document.createElement('li');
+    notificationItem.classList.add('notification-item', type); // Add the appropriate type class
+    
+    // Set the inner HTML of the notification item
+    notificationItem.innerHTML = `<p>${message}</p>`;
+
+    // Append the notification to the list
+    notificationList.appendChild(notificationItem);
+
+    // Animate the notification in
+    setTimeout(() => {
+        notificationItem.style.opacity = '1';
+        notificationItem.style.transform = 'translateY(0)';
+    }, 100); // Start showing after 100ms
+}
+
+// Function to fetch notifications from the server
+async function fetchNotifications() {
+    try {
+        const response = await fetch(`${baseURL}/notifications`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            credentials: 'include' // Ensure the JWT cookie is sent with the request
+        });
+
+        const data = await response.json();
+        
+        if (response.ok) {
+            // Display each notification
+            data.forEach(notification => {
+                addNotification(notification.message, notification.type);
+            });
+        } else {
+            console.error('Failed to fetch notifications:');
+        }
+    } catch (error) {
+        console.error('Error fetching notifications:');
+    }
+}
+
+// Call the fetch function to get notifications
+fetchNotifications();
+
+// Function to poll for new notifications every few seconds
+function startNotificationPolling() {
+    setInterval(() => {
+        fetchNotifications(); // Fetch notifications every 10 seconds (or as needed)
+    }, 10000); // Poll every 10 seconds
+}
+
+// Call this function when the page loads to start polling
+startNotificationPolling();
+
+// Function to clear all notifications when clicked
+function clearNotifications() {
+    const notificationList = document.getElementById('notification-list');
+    notificationList.innerHTML = ''; // Clear the notification list
+}
+
+// Open the profile image selection modal
+function openProfileImageSelection() {
+    document.getElementById('profile-image-modal').classList.remove('hidden');
+}
+
+// Close the profile image selection modal
+function closeProfileImageSelection() {
+    document.getElementById('profile-image-modal').classList.add('hidden');
+}
+
+// Handle the selection of a profile image
+function selectProfileImage(imageSrc) {
+    // Update the profile picture on the front-end
+    document.querySelector('.profile-pic img').src = imageSrc;
+
+    // Save the selected image to the server/database
+    saveProfileImageToDB(imageSrc);
+
+    // Close the modal after selection
+    closeProfileImageSelection();
+}
+
+// Save the selected profile image to the database
+async function saveProfileImageToDB(imageSrc) {
+    try {
+        // Send the update request to the backend with the profile picture name (no ".jpg" extension)
+        const response = await fetch(`${baseURL}/profile/image`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            credentials: 'include', // This ensures the auth_token is included in the request automatically
+            body: JSON.stringify({
+                profilePicture: imageSrc.split('/').pop(), // Send only the filename (without .jpg)
+            }),
+        });
+
+    } catch (error) {
+        console.error('Error updating profile picture:', error);
+        alert('Error updating profile picture. Please try again later.');
+    }
+}
+
+// Function to fetch profile data and update the UI
+async function fetchProfile() {
+    if (!username) return alert('You are not authenticated. Please log in again.');
+
+    try {
+        const response = await fetch(`${baseURL}/profile/${username}`);
+        if (!response.ok) throw new Error(`Server error: ${response.status}`);
+        const profile = await response.json();
+
+        // Calculate level and XP progress
+        const level = getLevelFromXP(profile.xp);
+        const nextLevelXP = xpThresholds[level + 1] || xpThresholds[xpThresholds.length - 1];
+        const previousLevelXP = xpThresholds[level];
+        const xpProgress = ((profile.xp - previousLevelXP) / (nextLevelXP - previousLevelXP)) * 100;
+
+        // Update profile display elements
+        document.getElementById('username-display').innerText = `${profile.username}`;
+        document.getElementById('wallet-balance').innerText = `₹${formatInIndianStyle(profile.balance.toFixed(2))}`; // Format balance in Indian format
+        document.getElementById('user-xp').innerText = `${(profile.xp)}`; // Format XP in Indian format
+        document.getElementById('user-level').innerText = `${level}`;
+        document.getElementById('xp-progress-bar').style.width = `${xpProgress}%`;
+
+        // Update profile picture if available
+        let profilePicSrc = 'assets/1.jpg'; // Default image
+        if (profile.profilePicture && profile.profilePicture !== '1') {
+            profilePicSrc = `assets/${profile.profilePicture}.jpg`;
+        }
+        document.querySelector('.profile-pic img').src = profilePicSrc;
+
+        // Render rewards if any exist
+        renderRewards(profile.rewards);
+
+    } catch (error) {
+        alert('Error fetching profile. Please try again later.');
+    }
+}
+
+// Fetch XP status and display the next milestone
+async function fetchXpStatus() {
+    if (!username) return alert('You are not authenticated. Please log in again.');
+
+    try {
+        const response = await fetch(`${baseURL}/xp-status/${username}`);
+        if (!response.ok) throw new Error(`Server error: ${response.status}`);
+    } catch (error) {
+    }
+}
+function renderRewards(rewards) {
+    const rewardContainer = document.getElementById('reward-container');
+    rewardContainer.innerHTML = ''; // Clear existing content
+
+    rewards.forEach(reward => {
+        const rewardCard = document.createElement('div');
+        rewardCard.className = 'reward-card bg-gradient-to-br from-purple-600 to-indigo-600 text-white p-4 rounded-lg shadow-lg flex flex-col items-center max-w-xs mx-auto mb-4';
+
+        rewardCard.innerHTML = `
+            <h4 class="text-lg font-bold mb-2">Reward</h4>
+            <p class="text-sm text-gray-200">XP Required: <span class="font-semibold text-yellow-300">${reward.xpRequired}</span></p>
+            <p class="text-sm text-gray-200">Amount: ₹<span class="font-semibold">${formatInIndianStyle(reward.rewardAmount)}</span></p>
+            <div class="mt-2">
+                ${reward.claimed ? 
+                    // If claimed, show a "Claimed" label with a green color
+                    '<span class="text-green-300 font-semibold">Claimed</span>' : 
+                    // If not claimed, show the "Claim Now" button
+                    ''
+                }
+            </div>
+        `;
+
+        // If the reward is not claimed, add the "Claim Now" button
+        if (!reward.claimed) {
+            const claimButton = document.createElement('button');
+            claimButton.innerText = 'Claim Now';
+            claimButton.className = `
+                mt-3 bg-gradient-to-r from-green-400 via-green-500 to-green-600
+                text-white px-4 py-1.5 rounded-lg shadow-md
+                font-semibold tracking-wide uppercase
+                transition-all duration-300 transform
+                hover:scale-105 hover:shadow-md
+                focus:outline-none focus:ring-2 focus:ring-green-300
+            `;
+            // When clicked, trigger the claimReward function with the reward's ID
+            claimButton.onclick = () => claimReward(reward.xpRequired);
+            rewardCard.appendChild(claimButton);
+        }
+
+        // Append the reward card to the container
+        rewardContainer.appendChild(rewardCard);
+    });
+}
+
+// Function to claim a reward based on the XP requirement
+async function claimReward(xpRequired) {
+    if (!username) return alert('You are not authenticated. Please log in again.');
+
+    try {
+        const response = await fetch(`${baseURL}/claim-reward`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, xpRequired })
+        });
+
+        if (!response.ok) throw new Error(`Server error: ${response.status}`);
+        const data = await response.json();
+
+        if (data.rewardAmount) {
+            alert(`Reward of ₹${data.rewardAmount} claimed successfully!`);
+            fetchProfile(); // Refresh the profile to update the rewards
+        } else {
+            alert(data.message || 'Error claiming reward');
+        }
+    } catch (error) {
+        console.log(xpRequired)
+        alert('Error claiming reward. Please try again later.');
+    }
+}
+// Initialize the profile page on load
+async function initializePage() {
+    await checkAuth(); // Authenticate before proceeding
+    if (!username) return;
+
+    fetchProfile(); // Load profile data
+    fetchXpStatus(); // Load XP status
+}
+
+// Function to set and display the referral link
+function setReferralLink(username) {
+    if (!username) return;
+
+    // Construct the referral link
+    const referralLink = `https://cberwinx.vercel.app/frontend/auth.html?referral=${encodeURIComponent(username)}`;
+    
+    const referralLinkElement = document.getElementById('referral-link');
+    referralLinkElement.value = referralLink; // Set the value of the input to the referral link
+    referralLinkElement.href = referralLink;
+}
+// Function to copy the referral link
+function copyReferralLink()   {
+    const referralInput = document.getElementById('referral-link');
+    referralInput.select();
+    referralInput.setSelectionRange(0, 99999); // For mobile devices
+    const referralLink = referralInput.href; // Use the href as the link
+
+    navigator.clipboard.writeText(referralInput.value)
+        .then(() => {
+        })
+        .catch(err => {
+            alert('Failed to copy referral link.');
+        });
+}
+document.addEventListener('DOMContentLoaded', initializePage);
