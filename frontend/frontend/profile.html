@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CberWinX - Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/profile.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body class="bg-gray-900 text-white font-sans">
+    <div class="container mx-auto p-6">
+
+        <!-- Header with Notification and Settings -->
+        <header class="flex justify-between items-center mb-6">
+            <button class="notification-btn bg-blue-600 p-2 rounded-full transition duration-200 hover:bg-blue-500" onclick="toggleNotification()" aria-label="Notifications">🔔</button>
+            <button class="settings-btn bg-blue-600 p-2 rounded-full transition duration-200 hover:bg-blue-500" aria-label="Settings" onclick="toggleSettings()">⚙️</button>
+        </header>
+<!-- Profile Section -->
+<div class="profile flex flex-col items-center mb-6">
+    <div class="profile-pic mb-4">
+        <img src="./assets/default.jpg" alt="Profile Picture" class="rounded-full h-32 w-32 object-cover border-4 border-pink-500 shadow-lg" onclick="openProfileImageSelection()">
+    </div>
+    <h2 class="username text-3xl font-bold" id="username-display">Username</h2>
+
+    <!-- Wallet Balance Section -->
+    <div class="wallet-balance-card flex items-center justify-between bg-gray-800 text-white p-4 mt-4 rounded-lg shadow-lg w-full max-w-xs">
+        <img src="assets/wallet.png" alt="Wallet Icon" class="w-12 h-12 mr-3">
+        <div class="flex flex-col">
+            <span class="font-semibold text-lg">Wallet Balance</span>
+            <span class="balance-amount text-green-400 text-xl font-bold" id="wallet-balance">₹00.00</span>
+        </div>
+    </div>
+
+    <div class="xp-progress mt-4 w-full max-w-xs">
+        <div id="xp-progress-container" class="bg-gray-700 rounded-full h-2">
+            <div id="xp-progress-bar" class="bg-pink-500 h-2 rounded-full" style="width: 0%;"></div>
+        </div>
+        <div id="level-display" class="text-center mt-1">
+            <span class="font-semibold">Level:</span> <span id="user-level" class="text-green-400">0</span>
+            <br>
+            <span class="font-semibold">XP:</span> <span id="user-xp" class="text-green-400">0</span>
+        </div>
+    </div>
+</div>
+
+<!-- Profile Image Selection Modal -->
+<div id="profile-image-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-70 flex justify-center items-center z-50">
+    <div class="bg-white p-6 rounded-lg shadow-lg">
+        <h2 class="text-xl font-bold text-center mb-4">Select a Profile Image</h2>
+        <div class="grid grid-cols-5 gap-4">
+            <!-- Example images, add 10 options -->
+            <img src="assets/1.jpg" alt="Profile Image 1" class="profile-image-option rounded-full w-16 h-16 object-cover cursor-pointer" onclick="selectProfileImage('assets/1.jpg')">
+            <img src="assets/2.jpg" alt="Profile Image 2" class="profile-image-option rounded-full w-16 h-16 object-cover cursor-pointer" onclick="selectProfileImage('assets/2.jpg')">
+            <img src="assets/3.jpg" alt="Profile Image 3" class="profile-image-option rounded-full w-16 h-16 object-cover cursor-pointer" onclick="selectProfileImage('assets/3.jpg')">
+            <img src="assets/4.jpg" alt="Profile Image 4" class="profile-image-option rounded-full w-16 h-16 object-cover cursor-pointer" onclick="selectProfileImage('assets/4.jpg')">
+            <img src="assets/5.jpg" alt="Profile Image 5" class="profile-image-option rounded-full w-16 h-16 object-cover cursor-pointer" onclick="selectProfileImage('assets/5.jpg')">
+            <img src="assets/6.jpg" alt="Profile Image 6" class="profile-image-option rounded-full w-16 h-16 object-cover cursor-pointer" onclick="selectProfileImage('assets/6.jpg')">
+            <img src="assets/7.jpg" alt="Profile Image 7" class="profile-image-option rounded-full w-16 h-16 object-cover cursor-pointer" onclick="selectProfileImage('assets/7.jpg')">
+            <img src="assets/8.jpg" alt="Profile Image 8" class="profile-image-option rounded-full w-16 h-16 object-cover cursor-pointer" onclick="selectProfileImage('assets/8.jpg')">
+            <img src="assets/9.jpg" alt="Profile Image 9" class="profile-image-option rounded-full w-16 h-16 object-cover cursor-pointer" onclick="selectProfileImage('assets/9.jpg')">
+            <img src="assets/10.jpg" alt="Profile Image 10" class="profile-image-option rounded-full w-16 h-16 object-cover cursor-pointer" onclick="selectProfileImage('assets/10.jpg')">
+        </div>
+        <button class="bg-red-600 text-white px-4 py-2 rounded mt-4" onclick="closeProfileImageSelection()">Cancel</button>
+    </div>
+</div>
+
+        <!-- Action Buttons -->
+        <nav class="actions flex justify-around mb-6">
+            <button class="wallet-btn bg-blue-600 px-4 py-2 rounded hover:bg-blue-500 transition duration-200" onclick="redirectToWallet()" aria-label="Go to Wallet">💰 Wallet</button>
+            <button class="about-btn bg-blue-600 px-4 py-2 rounded hover:bg-blue-500 transition duration-200" aria-label="About Us">📜 About Us</button>
+            <button class="transaction-btn bg-blue-600 px-4 py-2 rounded hover:bg-blue-500 transition duration-200" onclick="openTransactionModal()" aria-label="View Transaction History">💳 Transaction History</button>
+        </nav>
+
+  <!-- Floating Notifications Section -->
+  <div class="floating-notification-container">
+    <div id="notification-box" class="notification-box hidden">
+        <h4 class="text-lg font-bold text-white mb-2">Notifications</h4>
+        <ul id="notification-list" class="notification-list list-none p-0"></ul>
+        <button class="clear-notifications-btn bg-red-600 px-4 py-2 rounded mt-2" onclick="clearNotifications()">Clear All</button>
+    </div>
+</div>
+        <!-- Rewards Section -->
+        <section class="rewards mb-6">
+            <div class="reward-cards bg-gradient-to-r from-purple-500 to-indigo-500 p-6 rounded-lg shadow-lg">
+                <h3 class="text-3xl font-bold mb-4 text-center">Rewards</h3>
+                <div id="reward-container" class="grid gap-4 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 reward-container"></div>
+            </div>
+        </section>
+
+         <!-- Gift Code Redemption -->
+         <section class="gifts text-center mb-8">
+            <h3 class="text-2xl font-bold mb-4">Redeem Gift Code</h3>
+            <input type="text" id="gift-code" placeholder="Enter Gift Code" class="p-2 bg-gray-800 rounded mb-4 border border-gray-700 text-center">
+            <button class="bg-blue-600 px-4 py-2 rounded hover:bg-blue-500 transition" onclick="redeemGift()">🎁 Redeem</button>
+            <p id="gift-message" class="mt-4 text-sm"></p>
+        </section>
+<!-- Refer and Earn -->
+<section class="refer-and-earn mb-8 text-center">
+    <h3 class="text-2xl font-bold mb-2">Refer and Earn</h3>
+    <p>Invite friends and earn rewards for every referral!</p>
+    <div class="flex justify-center mt-4">
+        <!-- Input for Referral Link -->
+        <input 
+            type="text" 
+            id="referral-link" 
+            readonly 
+            class="p-2 bg-gray-800 border border-gray-700 rounded-l-md">
+        <!-- Button to Copy Link -->
+        <button 
+            class="bg-blue-600 px-4 py-2 rounded-r-md hover:bg-blue-500 transition" 
+            onclick="copyReferralLink()">
+            Copy Link
+        </button>
+    </div>
+</section>
+<!-- CPAlead Offer Wall Section -->
+<section class="cpalead-offer-wall mb-8">
+    <h3 class="text-2xl font-bold text-center mb-4">Dont have Balance ?</h3>
+    <p class="text-center text-gray-300 mb-6">
+        Complete simple tasks and earn directly in your wallet!
+    </p>
+    <div class="text-center">
+        <button 
+            onclick="openCPAleadOfferWall()" 
+            class="bg-green-600 px-6 py-3 text-white rounded-lg hover:bg-green-500 transition-all">
+            🛠 Complete Tasks & Earn
+        </button>
+    </div>
+</section>
+
+    </div>
+    <div id="transaction-modal" class="modal hidden">
+        <div class="modal-content">
+            <button onclick="closeTransactionModal()" class="close-btn">X</button>
+            <h2 class="modal-title">Transaction History</h2>
+    
+            <div class="filter-options">
+                <label for="transaction-type">Filter by:</label>
+                <select id="transaction-type" onchange="filterTransactions()">
+                    <option value="all">All</option>
+                    <option value="reward">Reward</option>
+                    <option value="deposit">Deposit</option>
+                    <option value="withdraw">Withdraw</option>
+                    <option value="bets">Bets</option>
+                </select>
+            </div>
+    
+            <ul id="transaction-list" class="transaction-list"></ul>
+        </div>
+    </div>
+    <div id="settings-container" class="settings-container hidden p-8 bg-gradient-to-br from-gray-800 via-gray-900 to-black text-white rounded-lg shadow-2xl max-w-md mx-auto">
+        <h3 class="text-2xl font-bold text-center mb-6">Settings</h3>
+    
+        <!-- Language Selection -->
+        <label for="language-select" class="block text-sm font-semibold mb-2">Select Language:</label>
+        <select onchange="setLanguage(this.value)" id="language-select" aria-label="Select Language" class="w-full mb-6 bg-gray-700 text-white rounded-lg p-3 border border-gray-600">
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+        </select>
+    
+        <!-- Action Buttons -->
+        <div class="flex flex-col space-y-4 mb-6">
+            <button onclick="toggleResetPasswordModal()" id="change-password-btn" class="change-password-btn action-btn flex items-center justify-center bg-blue-500 hover:bg-blue-600 px-4 py-3 rounded-lg transition-all duration-200 font-semibold">
+                <span class="mr-2">🔒</span> Change Password
+            </button>
+            
+            <button onclick='logout()' class="action-btn flex items-center justify-center bg-red-500 hover:bg-red-600 px-4 py-3 rounded-lg transition-all duration-200 font-semibold">
+                <span class="mr-2">🚪</span> Logout
+            </button>
+            <button  class="action-btn flex items-center justify-center bg-gray-600 hover:bg-gray-700 px-4 py-3 rounded-lg transition-all duration-200 font-semibold">
+                <span class="mr-2">🎶</span> Toggle Music
+            </button>
+        </div>
+        <button class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded mt-4" onclick="toggleFeedbackModal()">Send Feedback</button>
+        <!-- Close Button -->
+        <button class="close-btn bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-lg w-full transition-all duration-200" onclick="toggleSettings()">✖ Close</button>
+    </div>
+<!-- Reset Password Form Modal -->
+<div id="reset-password-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-70 flex justify-center items-center z-50">
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md mx-4">
+        <h2 class="text-2xl font-semibold text-center text-white mb-4">Reset Your Password</h2>
+
+        <!-- Current Password -->
+        <input type="password" id="current-password" class="input-field p-2 bg-gray-700 text-white rounded-md border border-gray-700" placeholder="Enter current password" required>
+
+        <!-- New Password -->
+        <input type="password" id="new-password" class="input-field input-field p-2 bg-gray-700 text-white rounded-md border border-gray-700" placeholder="Enter new password" required>
+
+        <!-- Confirm New Password -->
+        <input type="password" id="confirm-password" class="input-field input-field p-2 bg-gray-700 text-white rounded-md border border-gray-700" placeholder="Confirm new password" required>
+
+        <!-- Action Buttons -->
+        <div class="flex justify-end space-x-4 mt-6">
+            <button onclick="toggleResetPasswordModal()" class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded">Cancel</button>
+            <button onclick="resetPassword()" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Reset Password</button>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Feedback Form Modal -->
+<div id="feedback-modal" class="hidden fixed inset-0 bg-gray-900 bg-opacity-70 flex justify-center items-center z-50">
+    <div class="bg-gray-800 p-6 rounded-lg shadow-lg w-full max-w-md mx-4">
+        <h2 class="text-xl font-bold text-center text-white mb-4">Feedback</h2>
+        <p class="text-center text-gray-300 mb-6">We’d love to hear your thoughts!</p>
+        
+        <form id="feedback-form" class="space-y-4">
+            <div>
+                <label for="feedback-name" class="block text-sm font-medium text-gray-300">Name</label>
+                <input type="text" id="feedback-name" name="name" class="w-full p-2 bg-gray-700 text-white rounded-md border border-gray-600" placeholder="Your name" required>
+            </div>
+            <div>
+                <label for="feedback-email" class="block text-sm font-medium text-gray-300">Email</label>
+                <input type="email" id="feedback-email" name="email" class="w-full p-2 bg-gray-700 text-white rounded-md border border-gray-600" placeholder="Your email" required>
+            </div>
+            <div>
+                <label for="feedback-message" class="block text-sm font-medium text-gray-300">Feedback</label>
+                <textarea id="feedback-message" name="message" rows="4" class="w-full p-2 bg-gray-700 text-white rounded-md border border-gray-600" placeholder="Share your feedback..." required></textarea>
+            </div>
+            <div class="flex justify-end space-x-4 mt-6">
+                <button type="button" onclick="toggleFeedbackModal()" class="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded">Cancel</button>
+                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+    
+<script src="scripts/profile.js"></script>
+
+</body>
+
+</html>

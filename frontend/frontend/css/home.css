@@ -1,0 +1,362 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Global Styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    scroll-behavior: smooth;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: #111; /* Dark background for a modern look */
+    color: #f5f5f5;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 15px 20px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.navbar .logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+/* Heading Styles */
+h1 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 3rem;
+    color: #ff0080;
+    text-shadow: 0 0 10px rgba(255, 238, 0, 0.8),
+                 0 0 20px rgba(0, 255, 0, 0.8),
+                 0 0 30px rgba(0, 255, 0, 0.8);
+    animation: slideIn 1s ease-out forwards;
+    margin: 20px 0;
+    text-align: center;
+}
+
+/* Pixelated Text Effect */
+.pixelated-text {
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 0 0 5px rgba(255, 238, 0, 0.8),
+                 0 0 10px rgba(0, 255, 0, 0.8),
+                 0 0 20px rgba(0, 255, 0, 0.8),
+                 0 0 30px rgba(0, 255, 0, 0.8);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.pixelated-text:hover {
+    transform: translateY(-3px);
+    color: #ff0080;
+}
+
+/* Background and Overlay */
+.video-background, .bg-image {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+}
+
+.overlay {
+    position: relative;
+    z-index: 1;
+    background: rgba(20, 30, 48, 0.7);
+    color: #15ff00d0;
+    animation: pulse 5s infinite alternate;
+    padding-top: 80px; /* Adjusted for a thinner navbar */
+    padding-bottom: 20px;
+    transition: background 0.3s ease;
+}
+
+.overlay:hover {
+    background: rgba(20, 30, 48, 0.9);
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+/* Neon Button Styling */
+.neon-button {
+    color: #ff00ffbe;
+    background: linear-gradient(45deg, #ff0080, #ff8c00);
+    background-clip: text;
+    -webkit-background-clip: text;
+    text-fill-color: transparent;
+    font-size: 1.1rem;
+    padding: 12px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+
+.neon-button:hover {
+    color: #000;
+    filter: brightness(1.2);
+    text-shadow: 0 0 20px rgba(255, 0, 255, 1);
+}
+
+/* Game Card Effect */
+.game-card {
+    background: rgba(34, 34, 34, 0.8);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.game-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 30px rgba(255, 0, 255, 0.7);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 10px 15px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .neon-button {
+        font-size: 1rem;
+    }
+
+    .game-card {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 12px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .neon-button {
+        font-size: 1rem;
+        padding: 10px 16px;
+    }
+
+    .game-card {
+        padding: 12px;
+        margin: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .neon-button {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    .game-card {
+        padding: 8px;
+        margin: 8px;
+    }
+
+    .navbar {
+        padding: 8px 10px;
+    }
+
+    .video-background, .bg-image {
+        min-width: 100%;
+        min-height: 100%;
+    }
+
+    .overlay {
+        padding-top: 60px; /* Reduced space for smaller screens */
+    }
+}
+
+/* Smooth Scrolling for Android */
+main {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Animation Keyframes */
+@keyframes slideIn {
+    0% { transform: translateY(-100%); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in forwards;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.slide-up {
+    animation: slideUp 0.5s ease forwards;
+}
+
+/* Transaction Button Styles */
+.btn-transaction {
+    background-color: #1eff00;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-transaction:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.02);
+}
+
+.btn-transaction:active {
+    transform: scale(0.98);
+}
+
+/* Dark Button Style */
+.dark-button {
+    background-color: #070707e7;
+    color: #f8f402e7;
+    border: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    cursor: default;
+}
+
+.dark-button:hover {
+    background-color: #444;
+}
+
+/* Input Field Styles */
+input {
+    transition: border-color 0.2s ease;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: #fff;
+}
+
+input:focus {
+    border-color: #0f0;
+    outline: none;
+}
+
+/* Display Amount Section */
+#displayAmount span {
+    background-color: #333333;
+    color: #f5f5dc;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.25rem;
+}
+
+/* Modal Styling */
+#utrModal, #depositModal {
+    backdrop-filter: blur(5px);
+}
+
+#utrModal .bg-gray-900, #depositModal .bg-gray-900 {
+    background: linear-gradient(145deg, #1c1c1c, #0d0d0d);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#utrModal h2, #depositModal h2 {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+#utrModal input, #depositModal input {
+    background-color: #333;
+}
+
+#utrModal .neon-button, #depositModal .neon-button {
+    transition: background-color 0.3s ease;
+}
+
+#utrModal .neon-button:hover, #depositModal .neon-button:hover {
+    transform: translateY(-2px);
+}
+/* Basic styling */
+.amount-container {
+    position: relative;
+    width: 100%;
+}
+
+.currency-symbol {
+    position: absolute;
+    left: 10px; /* Adjust to position the rupee sign */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.25rem; /* Size of the rupee symbol */
+}
+
+.amount-input {
+    width: 100%;
+    padding-left: 2.5rem; /* Add space for the rupee symbol */
+    padding-right: 1rem;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    background: transparent;
+    color: #ddd;
+    font-size: 1rem;
+}
+
+.amount-input:focus {
+    border-bottom: 2px solid #4CAF50; /* Green border when focused */
+    outline: none;
+}
+
+.amount-input::placeholder {
+    color: #bbb; /* Light gray for the placeholder text */
+}

@@ -1,0 +1,575 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+body {
+  background-color: #0d0d0d; /* Dark background for contrast */
+  font-family: 'Roboto', sans-serif; /* Clean, modern font */
+  color: #51ff0085; /* Default text color for readability */
+  margin: 0; /* Remove default margin */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  padding: 20px; /* Add padding around body */
+}
+/* General Text Styles */
+p, ul, li {
+  line-height: 1.6;
+  color: #cfcfcf;
+}
+/* Header Styles */
+h1, h2, h3 {
+  font-family: 'Press Start 2P', cursive;
+  color: #0abf53; /* Cool neon green */
+  text-shadow: 0 0 8px #0abf53, 0 0 16px #0abf53;
+  margin: 15px 0;
+  text-align: center;
+}
+
+.real-money-font {
+    font-family: 'Roboto', sans-serif; /* Change to your chosen font */
+    font-weight: 700; /* Bold */
+    font-size: 1.5rem; /* Increase font size */
+    color: #e5f503; /* Green color for a financial feel */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Optional: Add shadow for depth */
+}
+
+.text-gray-400 {
+    color: #00fdf1; /* Adjust to match your design */
+}
+
+.info-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px; /* Add padding for popup */
+}
+
+.popup-content {
+    background-color: #222;
+    padding: 20px;
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh; /* Set maximum height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    position: relative; /* Required for positioning close button */
+}
+
+.close-btn {
+    cursor: pointer;
+    font-size: 24px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #fff;
+}
+
+.popup-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.neon-title {
+    font-family: 'Press Start 2P', cursive;
+    color: #ff0000;
+    text-shadow: 
+        0 0 8px rgba(255, 0, 0, 0.7),
+        0 0 16px rgba(255, 0, 0, 0.5),
+        0 0 32px rgba(255, 0, 0, 0.3);
+    margin: 20px 0; /* Add margin for spacing */
+}
+
+.neon-title span {
+    color: #8a2be2;
+    text-shadow: 
+        0 0 8px rgba(138, 43, 226, 0.7),
+        0 0 16px rgba(138, 43, 226, 0.5),
+        0 0 32px rgba(138, 43, 226, 0.3);
+}
+
+.neon-button {
+    font-family: Arial, sans-serif;
+    position: relative;
+    overflow: hidden;
+    border: none;
+    color: #fff;
+    text-shadow: 
+        0 0 8px rgba(255, 255, 255, 0.7),
+        0 0 16px rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s ease;
+    padding: 10px 20px; /* Add padding for better touch target */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.neon-button:before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, rgba(255, 0, 0, 0.733), rgba(255, 0, 0, 0.712));
+    transition: opacity 0.3s ease;
+    opacity: 0;
+    transform: rotate(45deg);
+    z-index: -1;
+}
+
+.neon-button:hover {
+    transform: scale(1.05);
+}
+
+.betnumber-button {
+    border-radius: 50%;
+    width: 100%;
+    height: 3rem;
+    font-weight: bold;
+    text-shadow: 
+        0 0 8px rgba(255, 255, 255, 0.7),
+        0 0 16px rgba(255, 255, 255, 0.5);
+}
+
+.odd-number {
+    background-color: #f80000de;
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.74), 0 0 16px rgba(255, 0, 0, 0.781);
+}
+
+.even-number {
+    background-color: rgba(0, 240, 0, 0.644);
+    box-shadow: 0 0 8px rgba(0, 255, 0, 0.685), 0 0 16px rgba(2, 235, 2, 0.63);
+}
+
+.zero {
+    background: linear-gradient(135deg, red, purple);
+    box-shadow: 0 0 8px rgb(255, 0, 255), 0 0 16px rgba(255, 0, 0, 0.616);
+}
+
+.five {
+    background: linear-gradient(135deg, rgb(0, 255, 0), rgb(212, 0, 255));
+    box-shadow: 0 0 8px rgb(131, 0, 253), 0 0 16px rgb(0, 255, 0);
+}
+
+/* General Styles */
+body {
+    background-color: #0d0d0d; /* Dark background for contrast */
+    font-family: 'Roboto', sans-serif; /* Clean, modern font */
+    color: #ffffff; /* Default text color for readability */
+    padding: 20px; /* Add padding around body */
+}
+
+/* Sliding Container Styles */
+.sliding-container {
+    display: none; /* Hidden by default */
+    transition: transform 0.5s ease, opacity 0.9s ease;
+    opacity: 0; /* Initially fully transparent */
+    position: absolute; /* Change to absolute for proper sliding effect */
+    top: 100px; /* Adjust based on your layout */
+    left: 50%;
+    transform: translateX(-50%) translateY(20px); /* Slide up effect */
+    background: linear-gradient(135deg, rgb(0, 0, 0), rgba(0, 0, 0, 0.836)); /* Enhanced gradient background */
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1000; /* Ensure this is higher than the game history */
+    box-shadow: 0 4px 20px rgba(183, 0, 255, 0.5), 0 0 30px rgba(251, 255, 0, 0.8); /* Softer shadows with neon glow */
+}
+
+/* Hide the container initially */
+.sliding-container.active {
+    display: block; /* Change to block when shown */
+    opacity: 1; /* Fade in */
+    transform: translateX(-50%) translateY(0); /* Slide up */
+}
+
+/* Section Title Styles */
+.section-title {
+    font-family: 'Press Start 2P', cursive; /* Retro-inspired font */
+    color: #00ff22;
+    text-align: center;
+    font-size: 2.5rem; /* Increased font size for better visibility */
+    text-shadow: 
+        0 0 8px rgb(0, 255, 0),
+        0 0 16px rgba(9, 255, 0, 0.7);
+    margin: 30px 0; /* Increased margin for better spacing */
+}
+
+/* Text Styles */
+.text-gray-400 {
+    color: rgba(255, 255, 255, 0.9); /* Light gray for better contrast */
+    font-size: 1rem; /* Standard font size for readability */
+}
+
+/* Button Styles */
+button.bg-gray-700 {
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    color: #eeff00; 
+    transition: background-color 0.3s ease, transform 0.2s; /* Added transform for scale on hover */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px 20px; /* Padding for better touch target */
+    font-size: 1rem; /* Consistent font size */
+}
+
+button.bg-gray-700:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Darken on hover */
+    transform: scale(1.05); /* Slight scale on hover for feedback */
+}
+
+button.selected {
+  border: 2px solid #00ff22; /* Highlight selected buttons */
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.7); /* Neon glow effect */
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2rem; /* Smaller title on mobile */
+  }
+
+  button.bg-gray-700 {
+    font-size: 0.9rem; /* Smaller buttons on mobile */
+  }
+}
+
+
+button.neon-button {
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button.neon-button:hover {
+  transform: scale(1.05); /* Slight scale effect on hover */
+}
+ /* Additional styling for Game History section */
+.game-history-container {
+    background-color: rgba(0, 0, 0, 0.7); /* Transparent black */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto; /* Center the container and add top/bottom margin */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional shadow */
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box; /* Include padding and border in width/height */
+    
+    /* Ensure the container is positioned to allow overlap */
+    position: relative; /* Use relative positioning */
+  
+}
+
+/* Style for the section title */
+.section-title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 15px; /* Slightly increased margin for better spacing */
+}
+
+/* Flexbox for buttons */
+.section-options {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px; /* Add space above the buttons */
+    margin-bottom: 20px;
+}
+
+/* Button styles */
+.section-options button {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px 20px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    transition: background-color 0.3s;
+    box-sizing: border-box; /* Include padding and border in width/height */
+    /* Ensure buttons are always visible */
+    display: inline-block !important;
+
+}
+
+/* Button hover effect */
+.section-options button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+.info-icon {
+    width: 17px; /* Adjust size as needed */
+    height: 17px; /* Maintain aspect ratio */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+}
+/* Style for the button inside the Amount container */
+#selectedBet .bet-container-button {
+  display: inline-block;
+  width: auto; /* Ensure it resizes based on content */
+  padding: 0.5rem 1rem; /* Same padding as the original button */
+  color: #ffffff;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgb(47, 0, 255); /* Optional neon effect */
+  
+}
+
+/* Hover effects can also be added here */
+#selectedBet .bet-container-button:hover {
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.8); /* Enhanced glow on hover */
+  transform: scale(1.05); /* Slight enlargement on hover */
+}
+.selected {
+  border: 2px solid #4caf50; /* Green border for selected multiplier */
+  background-color: #3e3e3e; /* Slightly darker background */
+}
+
+.alert {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  color: white;
+  z-index: 1000;
+}
+
+.alert-success {
+  background-color: green; /* Success color */
+}
+
+.alert-error {
+  background-color: red; /* Error color */
+}
+#paginationControls {
+  margin-top: 20px; /* Space above the pagination buttons */
+  padding: 10px;    /* Add some padding around the buttons */
+}
+
+#paginationControls .btn {
+  min-width: 100px;  /* Ensure buttons have a consistent width */
+}
+/* Neon color backgrounds */
+.bg-neon-red {
+  background: #ff073a; /* Neon red */
+  box-shadow: 0 0 10px #ff073a, 0 0 20px #ff073a, 0 0 30px #ff073a;
+}
+
+.bg-neon-green {
+  background: #39ff14; /* Neon green */
+  box-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 30px #39ff14;
+}
+
+.bg-neon-purple {
+  background: #bc13fe; /* Neon purple */
+  box-shadow: 0 0 10px #bc13fe, 0 0 20px #bc13fe, 0 0 30px #bc13fe;
+}
+
+/* Neon half-color gradients */
+/* Diagonal neon half-color gradients */
+.diagonal-neon-red-purple {
+  background: linear-gradient(45deg, #ff073a 50%, #bc13fe 50%);
+  box-shadow: 0 0 10px #ff073a, 0 0 20px #ff073a, 0 0 30px #bc13fe;
+}
+
+.diagonal-neon-green-purple {
+  background: linear-gradient(45deg, #39ff14 50%, #bc13fe 50%);
+  box-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14, 0 0 30px #bc13fe;
+}
+
+/* Additional neon text color for numbers */
+.text-neon-red {
+  color: #ff073a;
+  text-shadow: 0 0 5px #ff073a, 0 0 10px #ff073a, 0 0 15px #ff073a;
+}
+
+.text-neon-green {
+  color: #39ff14;
+  text-shadow: 0 0 5px #39ff14, 0 0 10px #39ff14, 0 0 15px #39ff14;
+}
+
+.text-neon-purple {
+  color: #bc13fe;
+  text-shadow: 0 0 5px #bc13fe, 0 0 10px #bc13fe, 0 0 15px #bc13fe;
+}
+/* Circular button styles for neon colors */
+
+.neon-buttonh {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px; /* Adjust size as needed */
+  height: 40px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #ffffff; /* Default text color */
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.5); /* Initial shadow */
+  margin: 5px; /* Space between numbers */
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+/* Outcome number styles */
+.neon-buttonh.red-purple {
+  background: linear-gradient(45deg, #ff0739b2 50%, #bb13feb0 50%);
+  box-shadow: 0 0 10px #ff07398a, 0 0 20px #ff073985, 0 0 30px #bb13fe86;
+}
+
+/* Non-outcome number styles */
+.neon-buttonh.green-purple {
+  background: linear-gradient(45deg, #37ff1491 50%, #bb13fea6 50%);
+  box-shadow: 0 0 10px #37ff148e, 0 0 20px #37ff148a, 0 0 30px #bb13fe98;
+}
+
+.neon-buttonh.purple {
+  background-color: #bc13fe;
+  box-shadow: 0 0 10px #bc13fe, 0 0 20px #bc13fe;
+}
+
+.neon-buttonh.red {
+  background-color: #ff073a;
+  box-shadow: 0 0 10px #ff073a, 0 0 20px #ff073a;
+}
+
+.neon-buttonh.green {
+  background-color: #37ff14ab;
+  box-shadow: 0 0 10px #37ff14ad, 0 0 20px #37ff14b0;
+}
+
+.neon-buttonh.non-outcome {
+  background-color: rgba(176, 176, 176, 0.6); /* Light gray for non-outcome numbers */
+  box-shadow: 0 0 5px rgba(176, 176, 176, 0.4); /* Subtle glow for non-outcome */
+}
+
+/* Animation for history items */
+.history-item {
+  opacity: 0; /* Start hidden */
+  transform: translateY(20px); /* Start from below */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Animation timing */
+}
+
+.history-item.visible {
+  opacity: 1; /* Show when visible */
+  transform: translateY(0); /* Slide to original position */
+}
+
+
+.history-item.visible {
+  opacity: 1; /* Show when visible */
+  transform: translateY(0); /* Slide to original position */
+}
+.btn {
+  background-color: #4a5568; /* Gray background */
+  color: white; /* White text */
+  padding: 10px 20px; /* Padding */
+  border: none; /* Remove border */
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s; /* Smooth background transition */
+}
+
+.btn:hover {
+  background-color: #2d3748; /* Darker gray on hover */
+}
+
+/* Chart item styles */
+.chart-item {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+  margin-bottom: 20px; /* Space between each history item */
+  padding: 10px; /* Optional: add padding for better spacing within the item */
+  border-radius: 5px; /* Optional: rounded corners for each item */
+  background-color: rgba(0, 0, 0, 0.589); /* Optional: light background for visibility */
+}
+
+.text-color {
+  color: #38b2ac; /* Color for the actual outcome number */
+}
+
+.text-transparent {
+  color: rgba(255, 255, 255, 0.3); /* Transparent color for non-outcome numbers */
+}
+.number-container {
+  display: flex; /* Flexbox to align numbers */
+  justify-content: space-around; /* Space numbers evenly */
+  flex-wrap: wrap; /* Allow numbers to wrap to the next line if necessary */
+  width: 100%; /* Full width of the container */
+}
+
+.number-container {
+  display: flex; /* Flexbox to align numbers */
+  justify-content: space-between; /* Space numbers evenly */
+  flex-wrap: nowrap; /* Prevent wrapping to a new line */
+  width: 100%; /* Full width of the container */
+}
+
+.neon-number {
+  display: inline-flex; /* Align items within the span */
+  align-items: center;
+  justify-content: center;
+  width: 30px; /* Adjusted size for compactness */
+  height: 30px; /* Adjusted height */
+  border-radius: 50%; /* Make it circular */
+  font-weight: bold; /* Bold text */
+  font-size: 1rem; /* Adjusted size for better visibility */
+  color: #ffffff; /* Default text color */
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.5); /* Initial shadow */
+  margin: 0 2px; /* Smaller margin to fit more numbers in one line */
+  transition: transform 0.3s ease; /* Smooth transition */
+}
+
+/* Outcome number styles */
+.outcome-number {
+  background-color: #37ff14; /* Bright green for the winning number */
+  box-shadow: 0 0 10px #37ff14, 0 0 20px #37ff14, 0 0 30px #37ff14; /* Bright shadow effect */
+}
+
+/* Non-outcome number styles */
+.non-outcome-number {
+  background-color: rgba(176, 176, 176, 0); /* Light gray for non-outcome numbers */
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4); /* Subtle glow for non-outcome */
+}
+
+
+/* Add hover effect for numbers */
+.neon-number:hover {
+  transform: scale(1.2); /* Slightly enlarge the number on hover */
+  text-shadow: 0 0 10px rgba(255, 255, 0, 0.9), 
+               0 0 20px rgba(255, 255, 0, 0.7); /* Stronger glow on hover */
+}
+.neon-buttonh.red {
+    background-color: #ff073a;
+    box-shadow: 0 0 10px #ff073a, 0 0 20px #ff073a;
+}
+.neon-buttonh.green {
+    background-color: #37ff14ab;
+    box-shadow: 0 0 10px #37ff14ad, 0 0 20px #37ff14b0;
+}
+.neon-buttonh.green-purple {
+    background: linear-gradient(45deg, #37ff1491 50%, #bb13fea6 50%);
+    box-shadow: 0 0 10px #37ff148e, 0 0 20px #37ff148a, 0 0 30px #bb13fe98;
+}
+.neon-buttonh.red-purple {
+    background: linear-gradient(45deg, #ff0739b2 50%, #bb13feb0 50%);
+    box-shadow: 0 0 10px #ff07398a, 0 0 20px #ff073985, 0 0 30px #bb13fe86;
+}
+.bg-yellow-500 {
+    background-color: #FFD700;
+    box-shadow: 0 0 10px #FFD700, 0 0 20px #FFD700;
+}
+.bg-blue-500 {
+    background-color: #1E90FF;
+    box-shadow: 0 0 10px #1E90FF, 0 0 20px #1E90FF;
+}

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>CberWinX - Home</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/home.css">
+    
+    <!-- Custom JavaScript -->
+    <script src="./scripts/home.js" defer></script>
+</head>
+<body class="bg-black overflow-hidden">
+    
+    <!-- Video Background with Fallback Image -->
+    <video id="video" class="video-background" autoplay muted playsinline loop>
+        <source src="./assets/bg.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <img id="bgImage" class="bg-image" src="./assets/bg.png" style="display: none;" alt="Fallback Background Image">
+
+    <!-- Header with Logo and Navigation (sticky position) -->
+    <header class="sticky top-0 flex justify-between items-center p-5 bg-gray-900 bg-opacity-80 z-10 shadow-lg">
+<div class="flex items-center space-x-3">
+            <img src="./assets/default.jpg" id="profileLogo" class="rounded-full h-16 w-16 object-cover border-4 border-pink-500" alt="CberWinX Logo" />
+        </div>        <nav class="space-x-2 md:space-x-4">
+            <a href="wallet.html" class="neon-button px-4 py-2 rounded hover:shadow-lg transition-all duration-300" aria-label="Go to Wallet">Wallet</a>
+            <a href="profile.html" class="neon-button px-4 py-2 rounded hover:shadow-lg transition-all duration-300" aria-label="Go to Profile">Profile</a>
+            <a href="help.html" class="neon-button px-4 py-2 rounded hover:shadow-lg transition-all duration-300" aria-label="Get Help">Help</a>
+        </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex flex-col items-center justify-center min-h-screen overlay p-4 pt-20">
+        <h1 id="CberWinX" class="text-3xl md:text-5xl font-bold mb-5 pixelated-text text-center"></h1>
+        <p class="mb-8 text-lg text-center animate__animated animate__fadeIn animate__delay-2s">Join the fun and try your luck with our exciting games!</p>
+        
+        <!-- Early Access Notice -->
+        <div class="bg-yellow-500 text-black p-4 rounded shadow-lg mb-8">
+            <h2 class="font-semibold text-lg">Early Access!</h2>
+            <p>We are in early access! More games are coming soon, including Chess, Carom, Pool, and many more skill-based games soon..!</p>
+        </div>
+        
+        <!-- Centering ApexBet Card -->
+        <div class="flex justify-center w-full mb-8">
+            <div class="game-card p-4 bg-white rounded shadow-lg transition-transform transform hover:scale-105 duration-300">
+                <h3 class="text-2xl font-semibold mb-4 text-pink-500">WinGo</h3>
+                <p>Participate in 30 sec rounds draw and win big prizes!</p>
+                <button id="apexBetButton" class="neon-button mt-4 px-4 py-2 hover:shadow-lg transition-all duration-300">Play</button>
+            </div>
+        </div>
+        
+        <!-- Game Cards (if needed) -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
+            <!-- More game cards can be added here dynamically -->
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="p-4 bg-gray-900 text-center text-white">
+        <p>&copy; 2024 CberWinX. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript: Music Control & Video Fallback -->
+</body>
+</html>

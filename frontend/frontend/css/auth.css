@@ -1,0 +1,215 @@
+/* File: css/auth.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: radial-gradient(circle at center, #1b1b1b, #111);
+    color: #f0f0f0;
+    overflow: hidden;
+  }
+  
+  .container {
+    background: rgba(30, 30, 30, 0.95);
+    border: 1px solid rgba(0, 128, 128, 0.7);
+    border-radius: 12px;
+    padding: 30px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 0 15px rgba(0, 128, 128, 0.3), 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    position: absolute;
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  
+  .show {
+    opacity: 1;
+    transform: scale(1);
+  } 
+  .hidden {
+    opacity: 0;
+    transform: scale(0.9);
+    pointer-events: none;
+  }
+  
+  h2 {
+    font-size: 1.6em;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #00d4d4;
+    text-shadow: 0 0 8px rgba(0, 212, 212, 0.5);
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .input-span {
+    position: relative;
+  }
+  
+  .input-span input {
+    width: 100%;
+    padding: 12px;
+    background: #222;
+    border: 1px solid #333;
+    border-radius: 4px;
+    color: #f0f0f0;
+    font-size: 1em;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .input-span input:focus {
+    border-color: #00bfbf;
+    box-shadow: 0 0 8px rgba(0, 191, 191, 0.4);
+  }
+  
+  .input-span label {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    color: #888;
+    font-size: 0.9em;
+    pointer-events: none;
+    transition: 0.3s ease;
+  }
+  
+  .input-span input:focus + label,
+  .input-span input:not(:placeholder-shown) + label {
+    top: -8px;
+    left: 8px;
+    color: #00bfbf;
+    font-size: 0.75em;
+    background: #1b1b1b;
+    padding: 0 5px;
+    border-radius: 3px;
+  }
+  
+  .submit {
+    background: linear-gradient(45deg, #00bfbf, #009f9f);
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #f0f0f0;
+    font-size: 1em;
+    font-weight: bold;
+    text-align: center;
+    transition: transform 0.3s, background 0.5s, box-shadow 0.5s;
+  }
+  
+  .submit:hover {
+    background: linear-gradient(45deg, #009f9f, #00bfbf);
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(0, 191, 191, 0.5);
+  }
+  
+  span {
+    display: flex;
+    justify-content: center;
+    font-size: 0.9em;
+    color: #aaa;
+  }
+  
+  span a {
+    color: #00bfbf;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  span a:hover {
+    color: #009f9f;
+    text-shadow: 0 0 6px rgba(0, 191, 191, 0.6);
+  }
+.otp-input-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .otp-input {
+      width: 30px;
+      height: 40px;
+      text-align: center;
+      font-size: 24px;
+      border: none;
+      border-bottom: 2px solid #000;
+      background: transparent;
+      outline: none;
+    }
+
+    .otp-input:focus {
+      border-color: #00d1b2;
+    }
+
+    .otp-input::placeholder {
+      color: transparent;
+    }
+
+    .otp-input:focus::placeholder {
+      color: transparent;
+    }
+  .otp-message {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #555;
+  }
+  
+  /* Success Message Style */
+  .success {
+    color: green;
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  /* Error Message Style */
+  .error {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  
+  #resend-otp {
+    color: #00bfbf;
+    cursor: pointer;
+    font-size: 0.9em;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  #resend-otp:hover {
+    color: #009f9f;
+  }
+  
+  #resend-timer {
+    font-weight: bold;
+    color: #ff4d4d;
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      max-width: 85%;
+    }
+  
+    h2 {
+      font-size: 1.4em;
+    }
+  }
+  

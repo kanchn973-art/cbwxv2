@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help & Support - CberWinX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50">
+    
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="home.html" class="text-xl font-bold text-slate-800">← Back</a>
+            <h1 class="text-xl font-bold text-slate-800">Help & Support</h1>
+            <div class="w-6"></div>
+        </div>
+    </nav>
+
+    <div class="max-w-4xl mx-auto px-4 py-6">
+        
+        <!-- Quick Actions -->
+        <div class="grid md:grid-cols-3 gap-4 mb-8">
+            <a href="#deposit" class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition">
+                <div class="text-4xl mb-2">💰</div>
+                <h3 class="font-semibold text-slate-800">How to Deposit</h3>
+            </a>
+            <a href="#withdraw" class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition">
+                <div class="text-4xl mb-2">💸</div>
+                <h3 class="font-semibold text-slate-800">How to Withdraw</h3>
+            </a>
+            <a href="#contact" class="bg-white rounded-xl shadow-md p-6 text-center hover:shadow-lg transition">
+                <div class="text-4xl mb-2">📧</div>
+                <h3 class="font-semibold text-slate-800">Contact Us</h3>
+            </a>
+        </div>
+
+        <!-- FAQ Section -->
+        <div class="bg-white rounded-2xl shadow-md p-6 mb-6">
+            <h2 class="text-2xl font-bold text-slate-800 mb-6">Frequently Asked Questions</h2>
+            
+            <div class="space-y-4">
+                <details class="group">
+                    <summary class="flex justify-between items-center cursor-pointer p-4 bg-slate-50 rounded-lg font-semibold text-slate-800">
+                        How do I play WinGo?
+                        <span class="group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <div class="p-4 text-slate-600">
+                        <p class="mb-2">WinGo is a 30-second prediction game. Here's how to play:</p>
+                        <ol class="list-decimal list-inside space-y-1">
+                            <li>Select Color (Red/Green/Purple), Number (0-9), or Size (Big/Small)</li>
+                            <li>Enter your bet amount (minimum ₹10)</li>
+                            <li>Confirm your bet before timer ends</li>
+                            <li>Win 2x for color/size bets, 9x for number bets!</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <details id="deposit" class="group">
+                    <summary class="flex justify-between items-center cursor-pointer p-4 bg-slate-50 rounded-lg font-semibold text-slate-800">
+                        How do I deposit money?
+                        <span class="group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <div class="p-4 text-slate-600">
+                        <p class="mb-2">Follow these steps:</p>
+                        <ol class="list-decimal list-inside space-y-1">
+                            <li>Go to Wallet page</li>
+                            <li>Click "Deposit"</li>
+                            <li>Enter amount (₹100 - ₹25,000)</li>
+                            <li>Pay via UPI: <strong>paytmqr5hk47h@ptys</strong></li>
+                            <li>Enter 12-digit UTR number</li>
+                            <li>Submit (funds credited within 10 minutes)</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <details id="withdraw" class="group">
+                    <summary class="flex justify-between items-center cursor-pointer p-4 bg-slate-50 rounded-lg font-semibold text-slate-800">
+                        How do I withdraw money?
+                        <span class="group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <div class="p-4 text-slate-600">
+                        <p class="mb-2">Withdrawal process:</p>
+                        <ol class="list-decimal list-inside space-y-1">
+                            <li>Go to Wallet page</li>
+                            <li>Click "Withdraw"</li>
+                            <li>Enter amount (minimum ₹100)</li>
+                            <li>Provide bank account details</li>
+                            <li>Submit request</li>
+                            <li>Funds transferred within 24 hours</li>
+                        </ol>
+                    </div>
+                </details>
+
+                <details class="group">
+                    <summary class="flex justify-between items-center cursor-pointer p-4 bg-slate-50 rounded-lg font-semibold text-slate-800">
+                        What are XP and Levels?
+                        <span class="group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <div class="p-4 text-slate-600">
+                        <p>You earn XP (Experience Points) by placing bets. Every ₹10 bet = 1 XP. Higher levels unlock bigger rewards! Check your Profile page to claim rewards.</p>
+                    </div>
+                </details>
+
+                <details class="group">
+                    <summary class="flex justify-between items-center cursor-pointer p-4 bg-slate-50 rounded-lg font-semibold text-slate-800">
+                        How does the referral system work?
+                        <span class="group-open:rotate-180 transition">▼</span>
+                    </summary>
+                    <div class="p-4 text-slate-600">
+                        <p>Share your referral link from Profile page. When your friend registers and makes their first deposit, you both earn ₹5!</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+
+        <!-- Report Issue -->
+        <div class="bg-white rounded-2xl shadow-md p-6 mb-6">
+            <h2 class="text-2xl font-bold text-slate-800 mb-4">Report an Issue</h2>
+            <form id="issueForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Issue Type</label>
+                    <select id="issueType" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500">
+                        <option value="deposit">Deposit Issue</option>
+                        <option value="withdraw">Withdrawal Issue</option>
+                        <option value="game">Game Issue</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Description</label>
+                    <textarea id="issueDescription" rows="4" 
+                        class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+                        placeholder="Describe your issue in detail..."></textarea>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-700 mb-1">Screenshot (Optional)</label>
+                    <input type="file" id="issueImage" accept="image/*"
+                        class="w-full px-4 py-3 border border-slate-300 rounded-lg">
+                </div>
+                <button type="submit" class="w-full py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700">
+                    Submit Issue
+                </button>
+            </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div id="contact" class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl shadow-md p-6 text-white text-center">
+            <h2 class="text-2xl font-bold mb-4">Need More Help?</h2>
+            <p class="mb-4">Our support team is here to help you!</p>
+            <div class="space-y-2">
+                <p>📧 Email: <a href="mailto:support@cberwinx.com" class="underline">support@cberwinx.com</a></p>
+                <p>⏰ Response Time: Within 24 hours</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const API_URL = 'https://backcifbwerwix.onrender.com';
+
+        document.getElementById('issueForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData();
+            formData.append('issueType', document.getElementById('issueType').value);
+            formData.append('issueDescription', document.getElementById('issueDescription').value);
+            
+            const image = document.getElementById('issueImage').files[0];
+            if (image) formData.append('issueImage', image);
+
+            try {
+                const res = await fetch(`${API_URL}/api/submitIssue`, {
+                    method: 'POST',
+                    credentials: 'include',
+                    body: formData
+                });
+
+                if (res.ok) {
+                    alert('Issue submitted successfully! We will respond within 24 hours.');
+                    e.target.reset();
+                } else {
+                    alert('Failed to submit issue. Please try again.');
+                }
+            } catch (error) {
+                alert('Network error. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>

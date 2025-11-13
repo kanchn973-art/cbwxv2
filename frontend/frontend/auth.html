@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CberWinX - Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#EF4444'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen flex items-center justify-center p-4">
+    
+    <div class="w-full max-w-md">
+        <!-- Logo -->
+        <div class="text-center mb-8">
+            <div class="inline-flex items-center justify-center w-16 h-16 bg-white rounded-2xl shadow-lg mb-4">
+                <span class="text-3xl font-bold text-purple-600">C</span>
+            </div>
+            <h1 class="text-4xl font-bold text-white">CberWinX</h1>
+        </div>
+
+        <!-- Auth Container -->
+        <div class="bg-white rounded-2xl shadow-2xl p-8">
+            
+            <!-- Tabs -->
+            <div class="flex gap-2 mb-6 bg-gray-100 rounded-lg p-1">
+                <button onclick="showTab('login')" id="loginTab" class="flex-1 py-2 rounded-lg font-semibold transition bg-white text-purple-600 shadow">
+                    Login
+                </button>
+                <button onclick="showTab('register')" id="registerTab" class="flex-1 py-2 rounded-lg font-semibold transition text-gray-600">
+                    Register
+                </button>
+            </div>
+
+            <!-- Alert Box -->
+            <div id="alertBox" class="hidden mb-4 p-3 rounded-lg text-sm font-medium"></div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input type="email" id="loginEmail" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                    <input type="password" id="loginPassword" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition">
+                </div>
+                <div class="text-right">
+                    <a href="#" onclick="showTab('forgot')" class="text-sm text-purple-600 hover:underline">Forgot password?</a>
+                </div>
+                <button type="submit" id="loginBtn" 
+                    class="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition">
+                    Login
+                </button>
+            </form>
+
+            <!-- Register Form -->
+            <form id="registerForm" class="space-y-4 hidden">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Username</label>
+                    <input type="text" id="regUsername" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                    <input type="email" id="regEmail" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Password</label>
+                    <input type="password" id="regPassword" required minlength="6"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Referral Code (Optional)</label>
+                    <input type="text" id="referralCode"
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition">
+                </div>
+                <button type="submit" id="registerBtn"
+                    class="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition">
+                    Create Account
+                </button>
+            </form>
+
+            <!-- OTP Form -->
+            <form id="otpForm" class="space-y-4 hidden">
+                <div class="text-center mb-4">
+                    <h3 class="text-lg font-semibold text-gray-800">Verify OTP</h3>
+                    <p class="text-sm text-gray-600">Enter the 6-digit code sent to your email</p>
+                </div>
+                <div class="flex gap-2 justify-center">
+                    <input type="text" maxlength="1" class="otp-input w-12 h-12 text-center text-xl border-2 border-gray-300 rounded-lg focus:border-purple-500 transition" data-index="0">
+                    <input type="text" maxlength="1" class="otp-input w-12 h-12 text-center text-xl border-2 border-gray-300 rounded-lg focus:border-purple-500 transition" data-index="1">
+                    <input type="text" maxlength="1" class="otp-input w-12 h-12 text-center text-xl border-2 border-gray-300 rounded-lg focus:border-purple-500 transition" data-index="2">
+                    <input type="text" maxlength="1" class="otp-input w-12 h-12 text-center text-xl border-2 border-gray-300 rounded-lg focus:border-purple-500 transition" data-index="3">
+                    <input type="text" maxlength="1" class="otp-input w-12 h-12 text-center text-xl border-2 border-gray-300 rounded-lg focus:border-purple-500 transition" data-index="4">
+                    <input type="text" maxlength="1" class="otp-input w-12 h-12 text-center text-xl border-2 border-gray-300 rounded-lg focus:border-purple-500 transition" data-index="5">
+                </div>
+                <button type="submit" id="verifyBtn"
+                    class="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition">
+                    Verify OTP
+                </button>
+                <button type="button" onclick="showTab('login')"
+                    class="w-full text-gray-600 py-2 text-sm hover:text-gray-800">
+                    Back to Login
+                </button>
+            </form>
+
+            <!-- Forgot Password Form -->
+            <form id="forgotForm" class="space-y-4 hidden">
+                <div class="text-center mb-4">
+                    <h3 class="text-lg font-semibold text-gray-800">Reset Password</h3>
+                    <p class="text-sm text-gray-600">Enter your email to receive reset link</p>
+                </div>
+                <div>
+                    <input type="email" id="forgotEmail" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition"
+                        placeholder="Enter your email">
+                </div>
+                <button type="submit" id="resetBtn"
+                    class="w-full bg-gradient-to-r from-purple-600 to-blue-600 text-white py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-blue-700 transition">
+                    Send Reset Link
+                </button>
+                <button type="button" onclick="showTab('login')"
+                    class="w-full text-gray-600 py-2 text-sm hover:text-gray-800">
+                    Back to Login
+                </button>
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'https://backcifbwerwix.onrender.com';
+        let currentEmail = '';
+
+        function showTab(tab) {
+            // Hide all forms
+            document.querySelectorAll('form').forEach(f => f.classList.add('hidden'));
+            
+            // Reset tabs
+            document.getElementById('loginTab').classList.remove('bg-white', 'text-purple-600', 'shadow');
+            document.getElementById('registerTab').classList.remove('bg-white', 'text-purple-600', 'shadow');
+            
+            // Show selected form
+            if (tab === 'login') {
+                document.getElementById('loginForm').classList.remove('hidden');
+                document.getElementById('loginTab').classList.add('bg-white', 'text-purple-600', 'shadow');
+            } else if (tab === 'register') {
+                document.getElementById('registerForm').classList.remove('hidden');
+                document.getElementById('registerTab').classList.add('bg-white', 'text-purple-600', 'shadow');
+            } else if (tab === 'otp') {
+                document.getElementById('otpForm').classList.remove('hidden');
+            } else if (tab === 'forgot') {
+                document.getElementById('forgotForm').classList.remove('hidden');
+            }
+        }
+
+        function showAlert(message, type) {
+            const alert = document.getElementById('alertBox');
+            alert.className = `mb-4 p-3 rounded-lg text-sm font-medium ${type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`;
+            alert.textContent = message;
+            alert.classList.remove('hidden');
+            setTimeout(() => alert.classList.add('hidden'), 5000);
+        }
+
+        // Login
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('loginBtn');
+            btn.disabled = true;
+            btn.textContent = 'Logging in...';
+
+            try {
+                const res = await fetch(`${API_URL}/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
+                    body: JSON.stringify({
+                        email: document.getElementById('loginEmail').value,
+                        password: document.getElementById('loginPassword').value
+                    })
+                });
+
+                const data = await res.json();
+                
+                if (res.ok) {
+                    showAlert('Login successful!', 'success');
+                    setTimeout(() => window.location.href = 'home.html', 1000);
+                } else {
+                    showAlert(data.message || 'Login failed', 'error');
+                }
+            } catch (error) {
+                showAlert('Network error. Please try again.', 'error');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Login';
+            }
+        });
+
+        // Register
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('registerBtn');
+            btn.disabled = true;
+            btn.textContent = 'Creating account...';
+
+            currentEmail = document.getElementById('regEmail').value;
+
+            try {
+                const res = await fetch(`${API_URL}/register`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        username: document.getElementById('regUsername').value,
+                        email: currentEmail,
+                        password: document.getElementById('regPassword').value,
+                        referralCode: document.getElementById('referralCode').value
+                    })
+                });
+
+                const data = await res.json();
+                
+                if (res.ok) {
+                    showAlert('OTP sent to your email!', 'success');
+                    setTimeout(() => showTab('otp'), 1000);
+                } else {
+                    showAlert(data.message || 'Registration failed', 'error');
+                }
+            } catch (error) {
+                showAlert('Network error. Please try again.', 'error');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Create Account';
+            }
+        });
+
+        // OTP Inputs
+        const otpInputs = document.querySelectorAll('.otp-input');
+        otpInputs.forEach((input, index) => {
+            input.addEventListener('input', (e) => {
+                if (e.target.value && index < 5) {
+                    otpInputs[index + 1].focus();
+                }
+            });
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && !e.target.value && index > 0) {
+                    otpInputs[index - 1].focus();
+                }
+            });
+        });
+
+        // Verify OTP
+        document.getElementById('otpForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const otp = Array.from(otpInputs).map(i => i.value).join('');
+            
+            if (otp.length !== 6) {
+                showAlert('Please enter complete OTP', 'error');
+                return;
+            }
+
+            const btn = document.getElementById('verifyBtn');
+            btn.disabled = true;
+            btn.textContent = 'Verifying...';
+
+            try {
+                const res = await fetch(`${API_URL}/verify-otp`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: currentEmail, otp })
+                });
+
+                const data = await res.json();
+                
+                if (res.ok) {
+                    showAlert('Account verified! Redirecting...', 'success');
+                    setTimeout(() => showTab('login'), 1500);
+                } else {
+                    showAlert(data.message || 'Invalid OTP', 'error');
+                }
+            } catch (error) {
+                showAlert('Network error. Please try again.', 'error');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Verify OTP';
+            }
+        });
+
+        // Forgot Password
+        document.getElementById('forgotForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('resetBtn');
+            btn.disabled = true;
+            btn.textContent = 'Sending...';
+
+            try {
+                const res = await fetch(`${API_URL}/request-password-reset`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        email: document.getElementById('forgotEmail').value
+                    })
+                });
+
+                const data = await res.json();
+                
+                if (res.ok) {
+                    showAlert('Reset link sent to your email!', 'success');
+                    setTimeout(() => showTab('login'), 2000);
+                } else {
+                    showAlert(data.message || 'Failed to send reset link', 'error');
+                }
+            } catch (error) {
+                showAlert('Network error. Please try again.', 'error');
+            } finally {
+                btn.disabled = false;
+                btn.textContent = 'Send Reset Link';
+            }
+        });
+
+        // Check if referral code in URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const referral = urlParams.get('referral');
+        if (referral) {
+            document.getElementById('referralCode').value = referral;
+            showTab('register');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,198 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  username  String   @unique
+  email     String   @unique
+  password  String
+  balance   Float    @default(0)
+  
+  // Referral System
+  referralCode String  @unique
+  referredBy   String?
+  referrals    Referral[]
+  
+  // XP and Rewards
+  xp           Int      @default(0)
+  rewards      Reward[]
+  firstDeposit Boolean  @default(false)
+  
+  // Profile
+  profilePictureName String @default("1")
+  
+  // Verification
+  verified       Boolean   @default(false)
+  otp            String?
+  otpExpiration  DateTime?
+  resetToken     String?
+  resetTokenExpiration DateTime?
+  
+  // Socket
+  socketId String?
+  
+  // Relations
+  transactions     Transaction[]
+  bets             Bet[]
+  currentRoundBets CurrentRoundBet[]
+  notifications    Notification[]
+  deposits         Deposit[]
+  withdrawals      Withdrawal[]
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@index([email])
+  @@index([username])
+}
+
+model Referral {
+  id                String  @id @default(cuid())
+  userId            String
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  referredUsername  String
+  hasDeposited      Boolean @default(false)
+  
+  createdAt DateTime @default(now())
+  
+  @@index([userId])
+}
+
+model Reward {
+  id           String  @id @default(cuid())
+  userId       String
+  user         User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  xpRequired   Int
+  rewardAmount Float
+  claimed      Boolean @default(false)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@index([userId])
+}
+
+model Transaction {
+  id     String @id @default(cuid())
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  amount Float
+  type   String // 'Deposit', 'Withdraw', 'Reward', 'Referral Reward'
+  date   DateTime @default(now())
+  
+  createdAt DateTime @default(now())
+  
+  @@index([userId])
+}
+
+model Bet {
+  id      String @id @default(cuid())
+  userId  String
+  user    User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  betType      String // 'color', 'size', 'number'
+  betValue     String // Store as string to handle mixed types
+  betAmount    Float
+  win          Boolean @default(false)
+  payoutAmount Float   @default(0)
+  roundId      Int
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@index([userId])
+  @@index([roundId])
+}
+
+model CurrentRoundBet {
+  id      String @id @default(cuid())
+  userId  String
+  user    User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  betType   String
+  betValue  String
+  betAmount Float
+  roundId   Int
+  
+  createdAt DateTime @default(now())
+  
+  @@index([userId])
+  @@index([roundId])
+}
+
+model Notification {
+  id      String @id @default(cuid())
+  userId  String
+  user    User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  message String
+  date    DateTime @default(now())
+  
+  @@index([userId])
+}
+
+model Deposit {
+  id       String @id @default(cuid())
+  userId   String
+  user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  username String
+  
+  amount         Float
+  utn            String
+  screenshotData String?
+  screenshotType String?
+  checked        Boolean @default(false)
+  
+  createdAt DateTime @default(now())
+  
+  @@index([userId])
+}
+
+model Withdrawal {
+  id       String @id @default(cuid())
+  userId   String
+  user     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  username String
+  
+  amount        Float
+  accountNumber String
+  ifscCode      String
+  checked       Boolean @default(false)
+  
+  createdAt DateTime @default(now())
+  
+  @@index([userId])
+}
+
+model History {
+  id      String @id @default(cuid())
+  roundId Int    @unique
+  
+  number     Int
+  color      String
+  size       String
+  totalBets  Int @default(0)
+  winners    Int @default(0)
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  @@index([roundId])
+}
+
+model Feedback {
+  id      String @id @default(cuid())
+  name    String
+  email   String
+  message String
+  
+  dateSubmitted DateTime @default(now())
+}

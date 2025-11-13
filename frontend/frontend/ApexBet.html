@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WinGo - CberWinX</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+</head>
+<body class="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 min-h-screen text-white">
+    
+    <!-- Header -->
+    <header class="bg-black/30 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="home.html" class="text-xl font-bold">← Back</a>
+            <div class="flex items-center gap-4">
+                <div class="bg-white/10 px-4 py-2 rounded-lg">
+                    <span class="text-yellow-400 font-bold">₹<span id="balance">0</span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="max-w-md mx-auto px-4 py-6">
+        
+        <!-- Timer Card -->
+        <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-6 mb-6 text-center shadow-2xl">
+            <div class="text-sm opacity-80 mb-2">Round #<span id="roundId">1</span></div>
+            <div class="text-6xl font-bold mb-2" id="timer">30</div>
+            <div class="text-sm opacity-80">Seconds Remaining</div>
+            <div id="bettingStatus" class="mt-4 text-sm font-medium">
+                <span class="bg-green-500 px-3 py-1 rounded-full">Betting Open</span>
+            </div>
+        </div>
+
+        <!-- Color Selection -->
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 mb-6">
+            <h3 class="text-lg font-semibold mb-4">Select Color</h3>
+            <div class="grid grid-cols-3 gap-3">
+                <button onclick="selectBet('color', 'green')" 
+                    class="bet-btn bg-green-500 hover:bg-green-600 text-white py-4 rounded-xl font-bold text-lg transition transform hover:scale-105">
+                    Green
+                </button>
+                <button onclick="selectBet('color', 'purple')" 
+                    class="bet-btn bg-purple-500 hover:bg-purple-600 text-white py-4 rounded-xl font-bold text-lg transition transform hover:scale-105">
+                    Violet
+                </button>
+                <button onclick="selectBet('color', 'red')" 
+                    class="bet-btn bg-red-500 hover:bg-red-600 text-white py-4 rounded-xl font-bold text-lg transition transform hover:scale-105">
+                    Red
+                </button>
+            </div>
+        </div>
+
+        <!-- Number Selection -->
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 mb-6">
+            <h3 class="text-lg font-semibold mb-4">Select Number</h3>
+            <div class="grid grid-cols-5 gap-2">
+                <button onclick="selectBet('number', 0)" class="bet-btn bg-gradient-to-br from-red-500 to-purple-500 text-white py-3 rounded-lg font-bold">0</button>
+                <button onclick="selectBet('number', 1)" class="bet-btn bg-red-500 text-white py-3 rounded-lg font-bold">1</button>
+                <button onclick="selectBet('number', 2)" class="bet-btn bg-green-500 text-white py-3 rounded-lg font-bold">2</button>
+                <button onclick="selectBet('number', 3)" class="bet-btn bg-red-500 text-white py-3 rounded-lg font-bold">3</button>
+                <button onclick="selectBet('number', 4)" class="bet-btn bg-green-500 text-white py-3 rounded-lg font-bold">4</button>
+                <button onclick="selectBet('number', 5)" class="bet-btn bg-gradient-to-br from-green-500 to-purple-500 text-white py-3 rounded-lg font-bold">5</button>
+                <button onclick="selectBet('number', 6)" class="bet-btn bg-green-500 text-white py-3 rounded-lg font-bold">6</button>
+                <button onclick="selectBet('number', 7)" class="bet-btn bg-red-500 text-white py-3 rounded-lg font-bold">7</button>
+                <button onclick="selectBet('number', 8)" class="bet-btn bg-green-500 text-white py-3 rounded-lg font-bold">8</button>
+                <button onclick="selectBet('number', 9)" class="bet-btn bg-red-500 text-white py-3 rounded-lg font-bold">9</button>
+            </div>
+        </div>
+
+        <!-- Size Selection -->
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 mb-6">
+            <h3 class="text-lg font-semibold mb-4">Select Size</h3>
+            <div class="grid grid-cols-2 gap-3">
+                <button onclick="selectBet('size', 'big')" 
+                    class="bet-btn bg-yellow-500 hover:bg-yellow-600 text-white py-4 rounded-xl font-bold text-lg transition">
+                    Big (5-9)
+                </button>
+                <button onclick="selectBet('size', 'small')" 
+                    class="bet-btn bg-blue-500 hover:bg-blue-600 text-white py-4 rounded-xl font-bold text-lg transition">
+                    Small (0-4)
+                </button>
+            </div>
+        </div>
+
+        <!-- Bet Amount Selection (Hidden by default) -->
+        <div id="betAmountCard" class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 mb-6 hidden">
+            <h3 class="text-lg font-semibold mb-4">
+                Betting on: <span id="selectedBetDisplay" class="text-yellow-400">-</span>
+            </h3>
+            
+            <!-- Quick Amount -->
+            <div class="grid grid-cols-4 gap-2 mb-4">
+                <button onclick="setBetAmount(10)" class="bg-white/10 hover:bg-white/20 py-2 rounded-lg">₹10</button>
+                <button onclick="setBetAmount(50)" class="bg-white/10 hover:bg-white/20 py-2 rounded-lg">₹50</button>
+                <button onclick="setBetAmount(100)" class="bg-white/10 hover:bg-white/20 py-2 rounded-lg">₹100</button>
+                <button onclick="setBetAmount(500)" class="bg-white/10 hover:bg-white/20 py-2 rounded-lg">₹500</button>
+            </div>
+
+            <!-- Amount Controls -->
+            <div class="flex items-center justify-center gap-4 mb-4">
+                <button onclick="changeBetAmount(-10)" class="bg-red-500 hover:bg-red-600 w-12 h-12 rounded-full font-bold text-xl">-</button>
+                <div class="text-3xl font-bold text-yellow-400">₹<span id="betAmount">0</span></div>
+                <button onclick="changeBetAmount(10)" class="bg-green-500 hover:bg-green-600 w-12 h-12 rounded-full font-bold text-xl">+</button>
+            </div>
+
+            <!-- Multipliers -->
+            <div class="grid grid-cols-6 gap-2 mb-4">
+                <button onclick="multiplyBet(1)" class="bg-white/10 hover:bg-white/20 py-1 rounded text-sm">x1</button>
+                <button onclick="multiplyBet(5)" class="bg-white/10 hover:bg-white/20 py-1 rounded text-sm">x5</button>
+                <button onclick="multiplyBet(10)" class="bg-white/10 hover:bg-white/20 py-1 rounded text-sm">x10</button>
+                <button onclick="multiplyBet(20)" class="bg-white/10 hover:bg-white/20 py-1 rounded text-sm">x20</button>
+                <button onclick="multiplyBet(50)" class="bg-white/10 hover:bg-white/20 py-1 rounded text-sm">x50</button>
+                <button onclick="multiplyBet(100)" class="bg-white/10 hover:bg-white/20 py-1 rounded text-sm">x100</button>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="grid grid-cols-2 gap-3">
+                <button onclick="cancelBet()" class="bg-red-500 hover:bg-red-600 py-3 rounded-xl font-bold">Cancel</button>
+                <button onclick="confirmBet()" class="bg-green-500 hover:bg-green-600 py-3 rounded-xl font-bold">Confirm</button>
+            </div>
+        </div>
+
+        <!-- Result Display -->
+        <div id="resultCard" class="bg-white/5 backdrop-blur-sm rounded-2xl p-6 mb-6 hidden">
+            <h3 class="text-center text-lg font-semibold mb-4">Result</h3>
+            <div class="flex justify-center items-center gap-4">
+                <div id="resultNumber" class="w-20 h-20 rounded-full flex items-center justify-center text-3xl font-bold"></div>
+                <div class="text-left">
+                    <div class="text-sm opacity-70">Color: <span id="resultColor" class="font-bold"></span></div>
+                    <div class="text-sm opacity-70">Size: <span id="resultSize" class="font-bold"></span></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Game History -->
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-6">
+            <h3 class="text-lg font-semibold mb-4">Recent Results</h3>
+            <div id="historyList" class="flex gap-2 overflow-x-auto pb-2">
+                <!-- History items will be added here -->
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Alert Toast -->
+    <div id="toast" class="fixed bottom-4 right-4 bg-white text-gray-800 px-6 py-3 rounded-lg shadow-lg hidden transform transition-transform">
+        <p id="toastMessage"></p>
+    </div>
+
+    <script>
+        const API_URL = 'https://backcifbwerwix.onrender.com';
+        let socket;
+        let currentBet = { type: null, value: null, amount: 0 };
+        let userBalance = 0;
+
+        // Initialize
+        async function init() {
+            try {
+                const res = await fetch(`${API_URL}/verify-token`, { credentials: 'include' });
+                if (!res.ok) throw new Error('Not authenticated');
+                
+                const data = await res.json();
+                await fetchBalance();
+                fetchHistory();
+                connectSocket();
+            } catch (error) {
+                window.location.href = 'auth.html';
+            }
+        }
+
+        async function fetchBalance() {
+            try {
+                const res = await fetch(`${API_URL}/wallet`, { credentials: 'include' });
+                const data = await res.json();
+                userBalance = data.balance;
+                document.getElementById('balance').textContent = userBalance.toFixed(2);
+            } catch (error) {
+                console.error('Failed to fetch balance');
+            }
+        }
+
+        async function fetchHistory() {
+            try {
+                const res = await fetch(`${API_URL}/history`, { credentials: 'include' });
+                const data = await res.json();
+                displayHistory(data.slice(0, 10));
+            } catch (error) {
+                console.error('Failed to fetch history');
+            }
+        }
+
+        function displayHistory(history) {
+            const list = document.getElementById('historyList');
+            list.innerHTML = history.map(h => {
+                const colorClass = h.color === 'red' ? 'bg-red-500' : h.color === 'green' ? 'bg-green-500' : 'bg-purple-500';
+                return `<div class="${colorClass} w-10 h-10 rounded-full flex items-center justify-center font-bold">${h.number}</div>`;
+            }).join('');
+        }
+
+        function connectSocket() {
+            socket = io(API_URL, { withCredentials: true });
+            
+            socket.on('timerUpdate', (data) => {
+                document.getElementById('timer').textContent = data.timer;
+                document.getElementById('bettingStatus').innerHTML = 
+                    data.timer > 5 
+                        ? '<span class="bg-green-500 px-3 py-1 rounded-full">Betting Open</span>'
+                        : '<span class="bg-red-500 px-3 py-1 rounded-full">Betting Closing Soon!</span>';
+            });
+
+            socket.on('newOutcome', (outcome) => {
+                displayResult(outcome);
+                fetchBalance();
+                fetchHistory();
+            });
+
+            socket.on('balanceUpdate', (data) => {
+                userBalance = data.balance;
+                document.getElementById('balance').textContent = userBalance.toFixed(2);
+            });
+        }
+
+        function selectBet(type, value) {
+            currentBet.type = type;
+            currentBet.value = value;
+            
+            document.getElementById('betAmountCard').classList.remove('hidden');
+            document.getElementById('selectedBetDisplay').textContent = 
+                `${type.toUpperCase()}: ${value}`;
+            
+            // Highlight selected button
+            document.querySelectorAll('.bet-btn').forEach(btn => btn.classList.remove('ring-4', 'ring-white'));
+            event.target.classList.add('ring-4', 'ring-white');
+        }
+
+        function setBetAmount(amount) {
+            currentBet.amount = amount;
+            document.getElementById('betAmount').textContent = amount;
+        }
+
+        function changeBetAmount(delta) {
+            currentBet.amount = Math.max(0, currentBet.amount + delta);
+            document.getElementById('betAmount').textContent = currentBet.amount;
+        }
+
+        function multiplyBet(multiplier) {
+            currentBet.amount *= multiplier;
+            document.getElementById('betAmount').textContent = currentBet.amount;
+        }
+
+        function cancelBet() {
+            currentBet = { type: null, value: null, amount: 0 };
+            document.getElementById('betAmountCard').classList.add('hidden');
+            document.getElementById('betAmount').textContent = '0';
+            document.querySelectorAll('.bet-btn').forEach(btn => btn.classList.remove('ring-4', 'ring-white'));
+        }
+
+        async function confirmBet() {
+            if (!currentBet.type || !currentBet.value || currentBet.amount <= 0) {
+                showToast('Please select bet and amount', 'error');
+                return;
+            }
+
+            if (currentBet.amount > userBalance) {
+                showToast('Insufficient balance', 'error');
+                return;
+            }
+
+            try {
+                const res = await fetch(`${API_URL}/bet`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
+                    body: JSON.stringify({
+                        betType: currentBet.type,
+                        betValue: currentBet.value,
+                        betAmount: currentBet.amount
+                    })
+                });
+
+                const data = await res.json();
+                
+                if (res.ok) {
+                    showToast('Bet placed successfully!', 'success');
+                    cancelBet();
+                    fetchBalance();
+                } else {
+                    showToast(data.message || 'Failed to place bet', 'error');
+                }
+            } catch (error) {
+                showToast('Network error', 'error');
+            }
+        }
+
+        function displayResult(outcome) {
+            const card = document.getElementById('resultCard');
+            const numberEl = document.getElementById('resultNumber');
+            
+            const colorClass = outcome.color === 'red' ? 'bg-red-500' : 
+                              outcome.color === 'green' ? 'bg-green-500' : 'bg-purple-500';
+            
+            numberEl.className = `w-20 h-20 rounded-full flex items-center justify-center text-3xl font-bold ${colorClass}`;
+            numberEl.textContent = outcome.number;
+            
+            document.getElementById('resultColor').textContent = outcome.color;
+            document.getElementById('resultSize').textContent = outcome.size;
+            document.getElementById('roundId').textContent = outcome.roundId;
+            
+            card.classList.remove('hidden');
+            setTimeout(() => card.classList.add('hidden'), 5000);
+        }
+
+        function showToast(message, type) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toastMessage');
+            
+            toastMsg.textContent = message;
+            toast.className = `fixed bottom-4 right-4 px-6 py-3 rounded-lg shadow-lg transform transition-transform ${
+                type === 'success' ? 'bg-green-500 text-white' : 'bg-red-500 text-white'
+            }`;
+            
+            toast.classList.remove('hidden');
+            setTimeout(() => toast.classList.add('hidden'), 3000);
+        }
+
+        init();
+    </script>
+</body>
+</html>
