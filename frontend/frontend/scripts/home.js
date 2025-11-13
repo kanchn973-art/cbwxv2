@@ -11,7 +11,7 @@ async function checkAuth() {
     try {
         const res = await fetch(`${API_URL}/verify-token`, {
             method: 'GET',
-            credentials: 'include'
+            credentials: 'include' // CRITICAL: Send cookies
         });
 
         if (!res.ok) throw new Error('Not authenticated');
@@ -22,7 +22,15 @@ async function checkAuth() {
         return true;
     } catch (error) {
         console.error('Auth failed:', error);
-        window.location.href = 'auth.html';
+        
+        // Clear any stored tokens
+        localStorage.removeItem('auth_token');
+        
+        // Redirect after small delay to prevent loops
+        setTimeout(() => {
+            window.location.href = 'auth.html';
+        }, 100);
+        
         return false;
     }
 }

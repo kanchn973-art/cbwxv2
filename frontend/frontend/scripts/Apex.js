@@ -13,7 +13,7 @@ async function checkAuth() {
     try {
         const res = await fetch(`${API_URL}/verify-token`, {
             method: 'GET',
-            credentials: 'include'
+            credentials: 'include' // Always include
         });
 
         if (!res.ok) throw new Error('Not authenticated');
@@ -22,7 +22,10 @@ async function checkAuth() {
         username = data.username;
         return true;
     } catch (error) {
-        window.location.href = 'auth.html';
+        localStorage.removeItem('auth_token');
+        setTimeout(() => {
+            window.location.href = 'auth.html';
+        }, 100);
         return false;
     }
 }

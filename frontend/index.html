@@ -271,33 +271,20 @@
         }
     
 async function checkAuth() {
-    const token = localStorage.getItem('authToken');
-    if (!token) {
-        console.warn("No token found");
-        smoothRedirect('/frontend/auth.html'); // Redirect to auth.html if no token
-        return;
-    }
-
     try {
-        const response = await fetch(`${baseurl}/verify-token`, {
+        const res = await fetch(`${baseurl}/verify-token`, {
             method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${token}`
-            },
-            credentials: 'include'
+            credentials: 'include' // Send cookies
         });
 
-        if (response.ok) {
-            const data = await response.json();
-            console.log("Authenticated:", data.message);
-            smoothRedirect('/frontend/home.html'); // Redirect to home.html if token is valid
+        if (res.ok) {
+            smoothRedirect('/frontend/home.html');
         } else {
-            console.warn("User not authenticated");
-            smoothRedirect('/frontend/auth.html'); // Redirect to auth.html if token is invalid
+            smoothRedirect('/frontend/auth.html');
         }
     } catch (error) {
-        console.error("Authentication check failed:", error);
-        smoothRedirect('/frontend/auth.html'); // Redirect to auth.html if there was an error
+        console.error("Auth check failed:", error);
+        smoothRedirect('/frontend/auth.html');
     }
 }
     

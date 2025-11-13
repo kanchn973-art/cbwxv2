@@ -74,6 +74,7 @@ document.getElementById('registerForm')?.addEventListener('submit', async (e) =>
         });
 
         const data = await res.json();
+        
 
         if (!res.ok) throw new Error(data.message || 'Registration failed');
 
@@ -134,6 +135,10 @@ document.getElementById('otpForm')?.addEventListener('submit', async (e) => {
 
         if (!res.ok) throw new Error(data.message || 'Invalid OTP');
 
+        if (data.token) {
+            localStorage.setItem('auth_token', data.token);
+        }
+
         showAlert('Verification successful! Redirecting...', 'success');
         localStorage.removeItem('pendingEmail');
         setTimeout(() => showForm('loginForm'), 1500);
@@ -178,6 +183,10 @@ document.getElementById('loginForm')?.addEventListener('submit', async (e) => {
         const data = await res.json();
 
         if (!res.ok) throw new Error(data.message || 'Login failed');
+
+        if (data.token) {
+            localStorage.setItem('auth_token', data.token);
+        }
 
         showAlert('Login successful!', 'success');
         setTimeout(() => window.location.href = 'home.html', 1000);

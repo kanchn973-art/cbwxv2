@@ -11,19 +11,30 @@ async function checkAuth() {
     try {
         const res = await fetch(`${API_URL}/verify-token`, {
             method: 'GET',
-            credentials: 'include'
+            credentials: 'include' // CRITICAL: Send cookies
         });
 
         if (!res.ok) throw new Error('Not authenticated');
 
         const data = await res.json();
         username = data.username;
+        
         return true;
     } catch (error) {
-        window.location.href = 'auth.html';
+        console.error('Auth failed:', error);
+        
+        // Clear any stored tokens
+        localStorage.removeItem('auth_token');
+        
+        // Redirect after small delay to prevent loops
+        setTimeout(() => {
+            window.location.href = 'auth.html';
+        }, 100);
+        
         return false;
     }
 }
+
 
 // ======================
 // WALLET BALANCE
