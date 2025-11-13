@@ -388,15 +388,21 @@ app.get('/health', (req, res) => {
 
 // Socket.IO
 io.on('connection', (socket) => {
+    console.log('Socket connected:', socket.id);
+
     socket.on('register', async (userId) => {
-        await prisma.user.update({
-            where: { id: userId },
-            data: { socketId: socket.id }
-        });
+        try {
+            await prisma.user.update({
+                where: { id: userId },
+                data: { socketId: socket.id }
+            });
+        } catch (error) {
+            console.error('Socket register error:', error);
+        }
     });
 
     socket.on('disconnect', () => {
-        console.log('User disconnected');
+        console.log('Socket disconnected:', socket.id);
     });
 });
 
